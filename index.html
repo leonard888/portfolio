@@ -3,1304 +3,613 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Welcome to my simple portfolio website. Please take a look and contact me if you need something.">
-  <meta name="author" content="Leonard">
+  <meta name="description" content="Leonard Lesmana — IT Helpdesk & Systems Administrator. Experienced in ITSM, Microsoft 365, Azure, Active Directory, and physical infrastructure engineering.">
+  <meta name="author" content="Leonard Lesmana">
+  <meta name="keywords" content="Leonard Lesmana, IT Support, Systems Administrator, Service Desk, Microsoft 365, Azure, Active Directory, Infrastructure, Resume, CV">
 
-  <!-- OG Meta Tags to improve the way the post looks when you share the page on LinkedIn, Facebook, Google+ -->
-  <meta property="og:site_name" content="leonardlesmana_portfolio" /> <!-- website name -->
-  <meta property="og:site" content="https://leonard888.github.io/portfolio/" /> <!-- website link -->
-  <meta property="og:title" content="Leonard Lesmana" /> <!-- title shown in the actual shared post -->
-  <meta property="og:description" content="Welcome to my simple portfolio website. Please take a look and contact me if you need something." /> <!-- description shown in the actual shared post -->
-  <meta property="og:image" content="" /> <!-- image link, make sure it's jpg -->
-  <meta property="og:url" content="" /> <!-- where do you want your post to link to -->
-  <meta property="og:type" content="article" />
+  <!-- OG Meta Tags -->
+  <meta property="og:site_name" content="Leonard Lesmana — Interactive CV">
+  <meta property="og:title" content="Leonard Lesmana | IT Helpdesk & Systems Administrator">
+  <meta property="og:description" content="Experienced IT professional specializing in ITSM, Microsoft 365, Azure, and infrastructure engineering. 2x IT Operation Improvement Winner.">
+  <meta property="og:url" content="https://leonard888.github.io/portfolio/">
+  <meta property="og:type" content="website">
 
-  <!-- Website Title -->
-  <title>Leonard Lesmana</title>
+  <title>Leonard Lesmana | IT Helpdesk & Systems Administrator</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- Styles -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700&display=swap&subset=latin-ext" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600&display=swap&subset=latin-ext" rel="stylesheet">
-  <link href="bootstrap.css" rel="stylesheet">
-  <link href="fontawesome-all.css" rel="stylesheet">
-  <link href="swiper.css" rel="stylesheet">
-  <link href="magnific-popup.css" rel="stylesheet">
-
   <link href="styles.css" rel="stylesheet">
 
-  <!-- Favicon  -->
+  <!-- Favicon -->
   <link rel="icon" href="photo/favicon.png">
 </head>
 
-<body data-spy="scroll" data-target=".fixed-top">
+<body>
 
+  <!-- Mobile Overlay -->
+  <div class="mobile-overlay" id="mobile-overlay"></div>
 
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-
-    <!-- Image Logo -->
-    <a class="navbar-brand logo-image" href="/"><img src="photo/logo.png" alt="alternative" style="width:60px; height:100px;"></a>
-
-    <!-- Mobile Menu Toggle Button -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-awesome fas fa-bars"></span>
-      <span class="navbar-toggler-awesome fas fa-times"></span>
-    </button>
-    <!-- end of mobile menu toggle button -->
-
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#header">HOME<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#profile">PROFILE</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#album">ALBUM</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#education">EDUCATION</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#achievement">ACHIEVEMENT</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#experiences">ORGANIZATIONAL EXPERIENCES</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link page-scroll" href="#contact">CONTACT</a>
-        </li>
-      </ul>
-    </div>
-  </nav> <!-- end of navbar -->
-  <!-- end of navbar -->
-
-
-  <!-- Header -->
-  <header id="header" class="header">
-    <div class="header-content">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="text-container">
-              <h1>HELLO, WELCOME TO MY PORTFOLIO WEBSITE</h1>
-              <p class="p-heading p-large">My name is Leon, thank you for visiting my portfolio website, please have a look and enjoy your time.</p>
-              <p class="p-heading p-large">I am <span id="js-rotating">a Programmer, an Illustrator, a Video Editor, a Photographer, a Martial Artist, a Guitarist, a Gamer</span>.</p>
-            </div>
-          </div> <!-- end of col -->
-        </div> <!-- end of row -->
-      </div> <!-- end of container -->
-    </div> <!-- end of header-content -->
-  </header> <!-- end of header -->
-  <!-- end of header -->
-
-
-  <!-- Profile -->
-  <div id="profile" class="basic-1">
+  <!-- ============ NAVIGATION ============ -->
+  <nav class="navbar" id="navbar">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-5">
-          <div class="text-container">
-            <div class="section-title">PROFILE</div>
-            <h2>こんにちは</h2>
-            <p>My name is Leonard Lesmana, currently, I am a student majoring in Information Systems, Telkom University.
-              As an information systems technician, I have an interest in the website and network development, especially network security. This interest started when I entered a vocational high school with a major in TKJ. I have one hobby, which is learning something new, and I can also learn something quickly, and take criticism and suggestions, and am a hard worker.</p>
-              <p class="testimonial-text">"Learn by doing, and don't be afraid to make mistakes."</p>
-              <div class="testimonial-author">Leonard Lesmana</div>
-            </div> <!-- end of text-container -->
-          </div> <!-- end of col -->
-          <div class="col-lg-7">
-            <div class="image-container">
-              <img class="img-fluid" src="fotoo.JPG" alt="alternative" style="width:600px; height:400px; margin-left::-1000px;">
-            </div> <!-- end of image-container -->
-          </div> <!-- end of col -->
-        </div> <!-- end of row -->
-      </div> <!-- end of container -->
-    </div> <!-- end of basic-1 -->
-    <!-- end of profile -->
-
-
-    <!-- Album -->
-    <div id="album" class="filter">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="section-title">ALBUM</div>
-            <h2>Here's some of my work. Please take a look.</h2>
-          </div> <!-- end of col -->
-        </div> <!-- end of row -->
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <!-- Filter -->
-            <div class="button-group filters-button-group">
-              <a class="button is-checked" data-filter="*"><span>SHOW ALL</span></a>
-              <a class="button" data-filter=".ai"><span>ADOBE ILLUSTRATOR</span></a>
-              <a class="button" data-filter=".cv"><span>CV</span></a>
-              <a class="button" data-filter=".draw"><span>DRAWING</span></a>
-              <a class="button" data-filter=".mockup"><span>MOCKUP</span></a>
-              <a class="button" data-filter=".photo"><span>PHOTOGRAPHY</span></a>
-              <a class="button" data-filter=".ach"><span>ACHIEVEMENT</span></a>
-              <a class="button" data-filter=".fl"><span>FREELANCE</span></a>
-            </div> <!-- end of button group -->
-            <div class="grid">
-              <div class="element-item ai">
-                <a class="popup-with-move-anim" href="#ai1">
-                  <div class="element-item-overlay">
-                    <span>Fish Papercut</span>
-                  </div><img src="photo/ai1.jpg" alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ai">
-                <a class="popup-with-move-anim" href="#ai2">
-                  <div class="element-item-overlay"><span>Sunset</span>
-                  </div><img src="photo/ai2.jpg" alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ai">
-                <a class="popup-with-move-anim" href="#ai3">
-                  <div class="element-item-overlay"><span>Papercut Abstract Pattern</span></div><img src="photo/ai3.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ai">
-                <a class="popup-with-move-anim" href="#ai4">
-                  <div class="element-item-overlay"><span>Youtube Cover</span></div><img src="photo/ai4.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ai">
-                <a class="popup-with-move-anim" href="#ai5">
-                  <div class="element-item-overlay"><span>Wave</span></div><img src="photo/ai5.jpg" alt="alternative">
-                </a>
-              </div>
-              <div class="element-item cv">
-                <a class="popup-with-move-anim" href="#cv1">
-                  <div class="element-item-overlay"><span>CV</span></div><img src="photo/cv1.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic1">
-                  <div class="element-item-overlay"><span>Ai Hinatsuru</span></div><img src="photo/pic1.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic2">
-                  <div class="element-item-overlay"><span>Mirai Kuriyama</span></div><img src="photo/pic2.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic3">
-                  <div class="element-item-overlay"><span>Tamako Kitashirakawa</span></div><img src="photo/pic3.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic4">
-                  <div class="element-item-overlay"><span>Violet</span></div><img src="photo/pic4.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic5">
-                  <div class="element-item-overlay"><span>Eru Chitanda</span></div><img src="photo/pic5.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic6">
-                  <div class="element-item-overlay"><span>Platelet</span></div><img src="photo/pic6.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic7">
-                  <div class="element-item-overlay"><span>Rem and Ram</span></div><img src="photo/pic7.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic8">
-                  <div class="element-item-overlay"><span>Megumi Kato</span></div><img src="photo/pic8.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic9">
-                  <div class="element-item-overlay"><span>Kanna Makino</span></div><img src="photo/pic9.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item draw">
-                <a class="popup-with-move-anim" href="#pic10">
-                  <div class="element-item-overlay"><span>Nico Yazawa</span></div><img src="photo/pic10.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item mockup">
-                <a class="popup-with-move-anim" href="#mc1">
-                  <div class="element-item-overlay"><span>Hire In</span></div><img src="photo/mc1.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item mockup">
-                <a class="popup-with-move-anim" href="#mc2">
-                  <div class="element-item-overlay"><span>You Counsel</span></div><img src="photo/mc2.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item photo">
-                <a class="popup-with-move-anim" href="#photo1">
-                  <div class="element-item-overlay"><span>Dawn</span></div><img src="photo/photo1.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item photo">
-                <a class="popup-with-move-anim" href="#photo2">
-                  <div class="element-item-overlay"><span>Think</span></div><img src="photo2.JPG"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item photo">
-                <a class="popup-with-move-anim" href="#photo3">
-                  <div class="element-item-overlay"><span>Focus</span></div><img src="photo/photo3.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item photo">
-                <a class="popup-with-move-anim" href="#photo4">
-                  <div class="element-item-overlay"><span>Alone</span></div><img src="photo/photo4.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item photo">
-                <a class="popup-with-move-anim" href="#photo5">
-                  <div class="element-item-overlay"><span>Dew</span></div><img src="photo/photo5.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ach">
-                <a class="popup-with-move-anim" href="#ach1">
-                  <div class="element-item-overlay"><span>Paku Bumi</span></div><img src="photo/ach1.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ach">
-                <a class="popup-with-move-anim" href="#ach2">
-                  <div class="element-item-overlay"><span>National Exam</span></div><img src="photo/ach2.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ach">
-                <a class="popup-with-move-anim" href="#ach3">
-                  <div class="element-item-overlay"><span>OSIS</span></div><img src="photo/ach3.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ach">
-                <a class="popup-with-move-anim" href="#ach4">
-                  <div class="element-item-overlay"><span>Documenter Video</span></div><img src="photo/ach4.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item ach">
-                <a class="popup-with-move-anim" href="#ach5">
-                  <div class="element-item-overlay"><span>Photo Essay</span></div><img src="photo/ach5.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item fl">
-                <a class="popup-with-move-anim" href="#fl1">
-                  <div class="element-item-overlay"><span>X Banner</span></div><img src="photo/fl1.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-              <div class="element-item fl">
-                <a class="popup-with-move-anim" href="#fl2">
-                  <div class="element-item-overlay"><span>Company Profile</span></div><img src="photo/fl2.jpg"
-                  alt="alternative">
-                </a>
-              </div>
-            </div> <!-- end of grid -->
-            <!-- end of filter -->
-
-          </div> <!-- end of col -->
-        </div> <!-- end of row -->
-      </div> <!-- end of container -->
-    </div> <!-- end of filter -->
-    <!-- end of projects -->
-
-
-    <!-- Project Lightboxes -->
-    <!-- Lightbox -->
-    <div id="ai1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ai1.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Fish Papercut</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2020</span></p>
-          </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-
-    <!-- Lightbox -->
-    <div id="ai2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ai2.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Sunset</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2020</span></p>
-          </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-
-    <!-- Lightbox -->
-    <div id="ai3" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ai3.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Papercut Abstract Pattern</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2020</span></p>
-          </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-
-    <!-- Lightbox -->
-    <div id="ai4" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ai4.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Youtube Channel Cover Image</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2021</span></p>
-          </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-    <!-- end of lightbox -->
-
-    <!-- Lightbox -->
-    <div id="ai5" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ai5.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Wave</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2020</span></p>
-          </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <div id="cv1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/cv1.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>New Curriculum Vitae</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator. For further detail and the file please access this Google Drive <a href="https://drive.google.com/drive/folders/1g2nInFRPbJdwirWP87NUQDa_Vw2L58Mi?usp=sharing">link</a>
-          </p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2020</span></p>
-          </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
+      <a href="#hero" class="nav-logo">L<span>.</span>L</a>
+      <div class="nav-links" id="nav-links">
+        <a href="#hero">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
+  </nav>
 
-    <!-- Lightbox -->
-    <div id="pic1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic1.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Ai Hinatsuru</h3>
-          <hr class="line-heading">
-          <p>From anime Ryūō no Oshigoto.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+
+  <!-- ============ HERO ============ -->
+  <section id="hero">
+    <div class="hero-content">
+      <img src="photo/foto_new.jpeg" alt="Leonard Lesmana" class="hero-photo reveal">
+      <h1 class="reveal reveal-delay-1">Leonard Lesmana</h1>
+      <div class="hero-subtitle reveal reveal-delay-2">
+        <span id="typing-text"></span><span class="cursor"></span>
+      </div>
+      <p class="hero-location reveal reveal-delay-3">
+        <i class="fas fa-map-marker-alt"></i> Bandung, West Java, Indonesia
+      </p>
+      <div class="hero-cta reveal reveal-delay-4">
+        <a href="https://www.linkedin.com/in/leonard-lesmana/" target="_blank" rel="noopener" class="btn btn-primary">
+          <i class="fab fa-linkedin"></i> LinkedIn Profile
+        </a>
+        <a href="#contact" class="btn btn-outline">
+          <i class="fas fa-envelope"></i> Contact Me
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">About Me</span>
+        <h2>Professional Summary</h2>
+      </div>
+
+      <div class="about-content">
+        <div class="about-text reveal">
+          <p>I am a highly dedicated and versatile Information Technology professional with a deep specialization in IT Service Management (ITSM), global enterprise support, and physical infrastructure engineering. My career spans across handling rigorous L1/L2/L3 service desk operations, managing massive Microsoft 365 and Azure environments, and acting as the "remote hands" for data center and physical office setups.</p>
+          <p>Beyond traditional IT support, my background includes software development (Android/Java) and web infrastructure, allowing me to bridge the gap between infrastructure maintenance and application lifecycle management. I am passionate about utilizing technology to solve fundamental business bottlenecks.</p>
+        </div>
+
+        <!-- Stats -->
+        <div class="about-stats">
+          <div class="stat-card glass-card reveal reveal-delay-1">
+            <div class="stat-number" data-target="3" data-suffix="+">0</div>
+            <div class="stat-label">Years Experience</div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="pic2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic2.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Mirai Kuriyama</h3>
-          <hr class="line-heading">
-          <p>From anime Kyoukai no Kanata.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+          <div class="stat-card glass-card reveal reveal-delay-2">
+            <div class="stat-number" data-target="2" data-suffix="x">0</div>
+            <div class="stat-label">Award Winner</div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="pic3" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic3.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Tamako Kitashirakawa.</h3>
-          <hr class="line-heading">
-          <p>From anime Tamako Market</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+          <div class="stat-card glass-card reveal reveal-delay-3">
+            <div class="stat-number" data-prefix="#" data-target="1" data-suffix="">0</div>
+            <div class="stat-label">Service Desk Performer</div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="pic4" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic4.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Violet</h3>
-          <hr class="line-heading">
-          <p>From anime Violet Evergarden</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+          <div class="stat-card glass-card reveal reveal-delay-4">
+            <div class="stat-number" data-target="95" data-suffix="%+">0</div>
+            <div class="stat-label">SLA Maintained</div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="pic5" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic5.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Eru Chitanda</h3>
-          <hr class="line-heading">
-          <p>From anime Hyouka.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+        <!-- Pillars -->
+        <div class="about-pillars">
+          <div class="pillar-card glass-card reveal reveal-delay-1">
+            <div class="pillar-icon"><i class="fas fa-server"></i></div>
+            <h4>Systems Administration & IT Support</h4>
+            <p>Specializing in 1st/2nd line end-user support, Windows workstation management, and Microsoft 365 tenant administration.</p>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="pic6" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic6.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Platelet</h3>
-          <hr class="line-heading">
-          <p>From anime Cells at Work.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+          <div class="pillar-card glass-card reveal reveal-delay-2">
+            <div class="pillar-icon"><i class="fas fa-network-wired"></i></div>
+            <h4>Infrastructure & Networking</h4>
+            <p>Acting as "remote hands" for physical infrastructure — racking servers, structured cabling, and networking equipment.</p>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="pic7" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic7.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Rem and Ram</h3>
-          <hr class="line-heading">
-          <p>From anime Re:Zero</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+          <div class="pillar-card glass-card reveal reveal-delay-3">
+            <div class="pillar-icon"><i class="fas fa-cogs"></i></div>
+            <h4>Process Automation</h4>
+            <p>2025 & 2026 Project Improvement Winner — driving ITSM optimization across ServiceNow and Azure Hybrid Workers.</p>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Lightbox -->
-    <div id="pic8" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic8.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Megumi Kato</h3>
-          <hr class="line-heading">
-          <p>From anime Saenai Heroine no Sodatekata.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+
+  <!-- ============ EXPERIENCE ============ -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Career Path</span>
+        <h2>Professional Experience</h2>
+      </div>
+
+      <div class="timeline">
+
+        <!-- === UNIT4 === -->
+        <div class="timeline-entry reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">Unit4</div>
+                <div class="timeline-role">Associate IT Service Desk Engineer</div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period">Feb 2024 — Present</span>
+                <span class="badge badge-current">Current</span>
+                <span class="badge badge-fulltime">Full-time</span>
+              </div>
+            </div>
+            <p class="timeline-summary">Serving as a critical component of the global IT operations team, providing comprehensive 1st and 2nd-line technical support to employees across multiple regions and time zones. Daily operations involve full-English communication via Teams call queues, resolving complex hybrid OS issues across Windows and macOS.</p>
+            <button class="expand-btn" aria-label="Toggle details">Show Details <i class="fas fa-chevron-down"></i></button>
+            <div class="timeline-details">
+              <div class="timeline-details-inner">
+                <div class="detail-group">
+                  <div class="detail-group-title">Daily Operations & ITSM</div>
+                  <ul class="detail-list">
+                    <li>Manage end-to-end lifecycle of IT requests using ServiceNow. Handle comprehensive troubleshooting for Windows, Office 365, and macOS errors.</li>
+                    <li>Perform Active Directory account creation, offboarding, and complex modifications of Distribution Lists (DL) and Security Groups (SG).</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <div class="detail-group-title">Infrastructure & Security</div>
+                  <ul class="detail-list">
+                    <li>Manage enterprise licenses and assignments through Azure and M365 portals. Handle EAC, Azure Identity, Endpoint, and Exchange parameters.</li>
+                    <li>Perform proactive hardware troubleshooting, assess devices for replacement, and configure PDR sites. Assist users globally with MFA setups, VPN connectivity, and device compliance.</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <div class="detail-group-title">Key Achievements</div>
+                  <div class="achievement-highlight">
+                    <p><strong>🏆 #1 Service Desk Performer (2025):</strong> Achieved the highest metrics — most tickets closed with the highest Customer Satisfaction Index (CSI) while flawlessly maintaining strict enterprise SLAs.</p>
+                  </div>
+                  <div class="achievement-highlight">
+                    <p><strong>🥇 2026 IT Operation Improvement Winner:</strong> Engineered a fail-safe HR offboarding pipeline — ServiceNow → JSON webhook → Azure Cloud Worker → Azure Hybrid Worker on-premise → automated AD staging scripts with safe pending-group approach, eliminating irreversible account deletions.</p>
+                  </div>
+                  <div class="achievement-highlight">
+                    <p><strong>🥇 2025 IT Operation Improvement Winner:</strong> Automated Major Incident notifications — configured ServiceNow to detect confirmed P1/P2 incidents and instantly dispatch detailed email notifications to all impacted global users, drastically reducing crisis communication delays.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="pic9" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic9.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Kanna Makino</h3>
-          <hr class="line-heading">
-          <p>From anime Tamako Market.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+        <!-- === NEXANET — Supervisor === -->
+        <div class="timeline-entry reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">PT. Nexanet Nusantara Berjaya</div>
+                <div class="timeline-role">IT Service Delivery Supervisor</div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period">Sep 2024 — Apr 2025</span>
+                <span class="badge badge-contract">Contract / Freelance</span>
+              </div>
+            </div>
+            <p class="timeline-summary">Managed critical nationwide service delivery projects and maintained robust communication between stakeholders, contractors, and field technicians — carried out concurrently alongside full-time role at Unit4.</p>
+            <button class="expand-btn" aria-label="Toggle details">Show Details <i class="fas fa-chevron-down"></i></button>
+            <div class="timeline-details">
+              <div class="timeline-details-inner">
+                <div class="detail-group">
+                  <div class="detail-group-title">Blibli Managed Service Project</div>
+                  <ul class="detail-list">
+                    <li>Created monthly schedules, conducted daily ticket audits, and monitored operational output of on-site technicians deployed across Indonesia, achieving a 100% daily ticket resolution rate.</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <div class="detail-group-title">ICITAP Support</div>
+                  <ul class="detail-list">
+                    <li>Provided daily on-site and remote IT oversight for the International Criminal Investigative Training Assistance Program.</li>
+                    <li>Active Microsoft 365 Admin management, continuous server and network monitoring, facility access card management, and generating comprehensive monthly IT reports.</li>
+                    <li>Successfully reduced overall system downtime by 15%.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="pic10" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/pic10.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Nico Yazawa</h3>
-          <hr class="line-heading">
-          <p>From anime Love Live</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+        <!-- === NEXANET — IT Support === -->
+        <div class="timeline-entry reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card glass-card">
+            <div class="timeline-header">
+              <div>
+                <div class="timeline-company">PT. Nexanet Nusantara Berjaya</div>
+                <div class="timeline-role">IT Support Technician & Network Engineer</div>
+              </div>
+              <div class="timeline-meta">
+                <span class="timeline-period">Jan 2023 — Jan 2024</span>
+                <span class="badge badge-fulltime">Full-time</span>
+              </div>
+            </div>
+            <p class="timeline-summary">Served as a highly technical hands-on engineer handling system administration, network engineering, and physical IT infrastructure deployments for high-profile global clients including Mazars Indonesia, Roedl & Partners, Amadeus Technology, Club Med, @america, and Domino's Pizza.</p>
+            <button class="expand-btn" aria-label="Toggle details">Show Details <i class="fas fa-chevron-down"></i></button>
+            <div class="timeline-details">
+              <div class="timeline-details-inner">
+                <div class="detail-group">
+                  <div class="detail-group-title">Systems & Network Administration</div>
+                  <ul class="detail-list">
+                    <li>Handled comprehensive Microsoft 365 and Azure administration, Mimecast security, and Windows Server Active Directory CRUD operations.</li>
+                    <li>Monitored network traffic and device health via the Meraki Dashboard. Integrated systems with platforms like Skedda.</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <div class="detail-group-title">Global Technical Support</div>
+                  <ul class="detail-list">
+                    <li>Communicated extensively with global L2 and L3 IT teams, writing detailed incident reports and leading technical meetings in English.</li>
+                    <li>Troubleshot deep-level Windows and Microsoft errors including specific error codes and regedit configurations.</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <div class="detail-group-title">Device Provisioning</div>
+                  <ul class="detail-list">
+                    <li>Accelerated deployment times by 40% using MDT and Altiris for seamless Windows OS installations and imaging across enterprise hardware.</li>
+                  </ul>
+                </div>
+                <div class="detail-group">
+                  <div class="detail-group-title">Key Achievements</div>
+                  <div class="achievement-highlight">
+                    <p><strong>New Office IT Build-Out:</strong> Executed physical on-site setup of a brand new corporate office from scratch — racking/stacking core servers, terminating structured cabling, configuring enterprise network switches, and deploying wireless Access Points.</p>
+                  </div>
+                  <div class="achievement-highlight">
+                    <p><strong>Domino's Pizza POS Upgrade:</strong> Spearheaded massive hardware and software deployment — successfully upgrading and setting up over 100 operational cashier PCs across multiple retail locations with zero operational downtime.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="mc1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/mc1.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Hire In</h3>
-          <hr class="line-heading">
-          <p>Created with Figma.  For further detail and the file please access this Figma <a href="https://www.figma.com/file/2RjaVfjMefiYA3qlI9TE5r/Hire.In">link</a></p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+      </div> <!-- end timeline -->
+    </div>
+  </section>
+
+
+  <!-- ============ SKILLS ============ -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Expertise</span>
+        <h2>Technical Skills & Competencies</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Cloud & Identity -->
+        <div class="skill-card glass-card reveal reveal-delay-1">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+            <h4>Cloud & Identity Management</h4>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="mc2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/mc2.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>You Counsel</h3>
-          <hr class="line-heading">
-          <p>Created with Figma.  For further detail and the file please access this Figma <a href="https://www.figma.com/file/8IEg9p7ge5AfADBqpp3lN2/You-Counsel">link</a></p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+          <div class="skill-tags">
+            <span class="skill-tag">Microsoft 365</span>
+            <span class="skill-tag">Exchange Online</span>
+            <span class="skill-tag">SharePoint</span>
+            <span class="skill-tag">Teams</span>
+            <span class="skill-tag">Entra ID (Azure AD)</span>
+            <span class="skill-tag">Azure Hybrid Workers</span>
+            <span class="skill-tag">AWS Cloud</span>
+            <span class="skill-tag">Active Directory</span>
+            <span class="skill-tag">GPO</span>
+            <span class="skill-tag">DNS</span>
+            <span class="skill-tag">DHCP</span>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="photo1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/photo1.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Dawn</h3>
-          <hr class="line-heading">
-          <p>Taken from my apartment at dawn.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2020</span></p>
+        <!-- ITSM -->
+        <div class="skill-card glass-card reveal reveal-delay-2">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fas fa-headset"></i></div>
+            <h4>IT Service Management</h4>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="photo2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo2.JPG" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Think</h3>
-          <hr class="line-heading">
-          <p>Taken from GKU Telkom University.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2019</span></p>
+          <div class="skill-tags">
+            <span class="skill-tag">ServiceNow</span>
+            <span class="skill-tag">Workflow Automation</span>
+            <span class="skill-tag">ITIL Best Practices</span>
+            <span class="skill-tag">SLA & KPI Management</span>
+            <span class="skill-tag">Incident Ticketing</span>
+            <span class="skill-tag">Major Incident (P1/P2)</span>
+            <span class="skill-tag">Asset Inventory</span>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="photo3" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/photo3.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Focus</h3>
-          <hr class="line-heading">
-          <p>At Thailand, Khao San Road.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+        <!-- Networking & Security -->
+        <div class="skill-card glass-card reveal reveal-delay-3">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+            <h4>Networking & Security</h4>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="photo4" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/photo4.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Alone</h3>
-          <hr class="line-heading">
-          <p>Taken from Telkom Dormitory.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2019</span></p>
+          <div class="skill-tags">
+            <span class="skill-tag">Microsoft Intune</span>
+            <span class="skill-tag">Microsoft Defender</span>
+            <span class="skill-tag">MFA</span>
+            <span class="skill-tag">VPN</span>
+            <span class="skill-tag">Meraki Dashboard</span>
+            <span class="skill-tag">Firewall</span>
+            <span class="skill-tag">Mimecast</span>
+            <span class="skill-tag">TCP/IP</span>
+            <span class="skill-tag">Subnetting</span>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="photo5" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/photo5.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Dew</h3>
-          <hr class="line-heading">
-          <p>Taken from my Telkom University.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2019</span></p>
+        <!-- Hardware & Infrastructure -->
+        <div class="skill-card glass-card reveal reveal-delay-4">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fas fa-hdd"></i></div>
+            <h4>Hardware & Infrastructure</h4>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="ach1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ach1.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Paku Bumi</h3>
-          <hr class="line-heading">
-          <p>Silver medal, Paku Bumi international pencak silat tournamnet.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2019</span></p>
+          <div class="skill-tags">
+            <span class="skill-tag">Rack & Stack</span>
+            <span class="skill-tag">Structured Cabling</span>
+            <span class="skill-tag">Server Maintenance</span>
+            <span class="skill-tag">Wireless AP Setup</span>
+            <span class="skill-tag">Switch Config</span>
+            <span class="skill-tag">Console/Serial Access</span>
+            <span class="skill-tag">PDR Site Creation</span>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="ach2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ach2.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>National Exam</h3>
-          <hr class="line-heading">
-          <p>2nd place National Exam total score.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+        <!-- OS & Deployment -->
+        <div class="skill-card glass-card reveal reveal-delay-5">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fas fa-desktop"></i></div>
+            <h4>OS & Deployment Tools</h4>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="ach3" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ach3.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>OSIS</h3>
-          <hr class="line-heading">
-          <p>OSIS Secretary appreciation.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2018</span></p>
+          <div class="skill-tags">
+            <span class="skill-tag">Windows 10/11</span>
+            <span class="skill-tag">macOS</span>
+            <span class="skill-tag">Windows Server</span>
+            <span class="skill-tag">MDT</span>
+            <span class="skill-tag">Altiris</span>
+            <span class="skill-tag">PowerShell</span>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="ach4" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ach4.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Documenter Video</h3>
-          <hr class="line-heading">
-          <p>Favorite Winner of ASG documenter video by Unika Atma Jaya.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2015</span></p>
+        <!-- Software Dev & Web -->
+        <div class="skill-card glass-card reveal reveal-delay-6">
+          <div class="skill-card-header">
+            <div class="skill-icon"><i class="fas fa-code"></i></div>
+            <h4>Software Dev & Web</h4>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
-
-    <!-- Lightbox -->
-    <div id="ach4" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ach4.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Documenter Video</h3>
-          <hr class="line-heading">
-          <p>Favorite Winner of ASG documenter video by Unika Atma Jaya.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2015</span></p>
+          <div class="skill-tags">
+            <span class="skill-tag">Android (XML, Java)</span>
+            <span class="skill-tag">Firebase</span>
+            <span class="skill-tag">Web Hosting</span>
+            <span class="skill-tag">SEO</span>
+            <span class="skill-tag">META Campaigns</span>
+            <span class="skill-tag">JSON Webhooks</span>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Lightbox -->
-    <div id="ach5" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/ach5.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Photo Essay</h3>
-          <hr class="line-heading">
-          <p>1st place of ASG photo essay by Unika Atma Jaya.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2015</span></p>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <section id="achievements">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Recognition</span>
+        <h2>Key Achievements</h2>
+      </div>
+
+      <div class="achievements-grid">
+        <div class="achievement-card glass-card reveal reveal-delay-1">
+          <div class="achievement-icon">🏆</div>
+          <h4>#1 Service Desk Performer</h4>
+          <div class="achievement-year">2025 · Unit4</div>
+          <p>Achieved the highest metrics on the service desk — most tickets closed with the highest Customer Satisfaction Index (CSI) while flawlessly maintaining strict enterprise SLAs.</p>
+        </div>
+
+        <div class="achievement-card glass-card reveal reveal-delay-2">
+          <div class="achievement-icon">🥇</div>
+          <h4>IT Operation Improvement Winner — Azure Automation</h4>
+          <div class="achievement-year">2026 · Unit4</div>
+          <p>Engineered a fail-safe HR offboarding pipeline integrating ServiceNow, Azure Cloud Workers, and on-premise Hybrid Workers for automated AD lifecycle management.</p>
+        </div>
+
+        <div class="achievement-card glass-card reveal reveal-delay-3">
+          <div class="achievement-icon">🥇</div>
+          <h4>IT Operation Improvement Winner — Major Incident Automation</h4>
+          <div class="achievement-year">2025 · Unit4</div>
+          <p>Automated P1/P2 Major Incident notifications in ServiceNow, instantly dispatching detailed alerts to all impacted global users and drastically reducing crisis communication delays.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============ EDUCATION ============ -->
+  <section id="education">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Education</span>
+        <h2>Education & Continuous Learning</h2>
+      </div>
+
+      <div class="education-grid">
+        <div class="edu-card glass-card reveal reveal-delay-1">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-info">
+            <h4>Master of Information Systems</h4>
+            <div class="edu-school">Telkom University</div>
+            <div class="edu-period">Expected Graduation: April 2027 <span class="edu-badge in-progress">In Progress</span></div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="fl1" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/fl1.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>X Banner</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator for EUIS event.</p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2019</span></p>
+        <div class="edu-card glass-card reveal reveal-delay-2">
+          <div class="edu-icon"><i class="fas fa-graduation-cap"></i></div>
+          <div class="edu-info">
+            <h4>Bachelor of Management Information Systems</h4>
+            <div class="edu-school">Telkom University</div>
+            <div class="edu-period">Graduated: July 2025 <span class="edu-badge completed">Completed</span></div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
 
-    <!-- Lightbox -->
-    <div id="fl2" class="lightbox-basic zoom-anim-dialog mfp-hide">
-      <div class="row">
-        <button title="Close (Esc)" type="button" class="mfp-close x-button">×</button>
-        <div class="col-lg-7">
-          <img class="img-fluid" src="photo/fl2.jpg" alt="alternative">
-        </div> <!-- end of col -->
-        <div class="col-lg-4">
-          <h3>Company Profile</h3>
-          <hr class="line-heading">
-          <p>Created with Adobe Illustrator for Kubik's company profile. For further detail and the file please access this Figma <a href="https://www.figma.com/file/SsTYpQJ4T0rA9m6x4Otdve/ComPro-KKI-KUBIK?node-id=1%3A2">link</a></p>
-          <div class="testimonial-container">
-            <p class="testimonial-author">2021</span></p>
+        <div class="edu-card glass-card reveal reveal-delay-3">
+          <div class="edu-icon"><i class="fas fa-certificate"></i></div>
+          <div class="edu-info">
+            <h4>AWS Cloud Admin Training</h4>
+            <div class="edu-school">ID-Networkers</div>
+            <div class="edu-period">Professional Training <span class="edu-badge completed">Completed</span></div>
           </div>
-          <a class="btn-outline-reg mfp-close as-button" href="#album">BACK</a>
-        </div> <!-- end of col -->
-      </div> <!-- end of row -->
-    </div> <!-- end of lightbox-basic -->
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-    <!-- end of lightbox -->
+  <!-- ============ PROJECTS ============ -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Portfolio</span>
+        <h2>Software Development, Web & Cross-Functional Projects</h2>
+      </div>
 
-    <!-- educationlogoExp -->
-    <div id="education" class="slider">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <h2>Education</h2>
-            <p class="p-heading">This is my education history.</p>
-            </div> <!-- end of col -->
-          </div> <!-- end of row -->
-          <div class="row">
-            <div class="col-lg-12">
+      <div class="projects-grid">
+        <div class="project-card glass-card reveal reveal-delay-1">
+          <div class="project-header">
+            <i class="fas fa-globe"></i>
+            <h4>NIUNIQ Web Application</h4>
+          </div>
+          <div class="project-period">Undergraduate Thesis</div>
+          <p>Designed, engineered, and implemented the complex back-end administrative and user authentication systems for a comprehensive web application, including domain registration and hosting.</p>
+          <div class="project-tags">
+            <span class="project-tag">Web App</span>
+            <span class="project-tag">Back-end</span>
+            <span class="project-tag">Auth Systems</span>
+            <span class="project-tag">Hosting</span>
+          </div>
+        </div>
 
-              <!-- Card Slider -->
-              <div class="slider-container">
-                <div class="swiper-container card-slider">
-                  <div class="swiper-wrapper">
+        <div class="project-card glass-card reveal reveal-delay-2">
+          <div class="project-header">
+            <i class="fas fa-chart-line"></i>
+            <h4>ERA Graha — Digital Marketing & Web</h4>
+          </div>
+          <div class="project-period">Jan 2022 — Dec 2022</div>
+          <p>Bridged the gap between IT and marketing by writing raw code for promotional property websites. Implemented advanced SEO structures and META advertising campaigns, resulting in a 50% increase in web traffic.</p>
+          <div class="project-tags">
+            <span class="project-tag">Web Hosting</span>
+            <span class="project-tag">SEO</span>
+            <span class="project-tag">META Campaigns</span>
+            <span class="project-tag">Analytics</span>
+          </div>
+        </div>
 
-                    <!-- Slide -->
-                    <div class="swiper-slide">
-                      <div class="card">
-                        <img class="card-image" src="photo/logoEdu.png"
-                        alt="alternative">
-                        <div class="card-body">
-                          <div class="testimonial-author">TK Pelita Hati Jakarta
-                            <br>
-                            <p> 2004 - 2006 </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div> <!-- end of swiper-slide -->
-                    <!-- end of slide -->
+        <div class="project-card glass-card reveal reveal-delay-3">
+          <div class="project-header">
+            <i class="fas fa-mobile-alt"></i>
+            <h4>Rumah Konseling — Android App</h4>
+          </div>
+          <div class="project-period">Aug 2021 — Nov 2021 · Internship</div>
+          <p>Brainstormed, designed (UI/UX), coded, and compiled a native Android application for school counseling. Functions as an anonymous, real-time chatting platform for students and counseling teachers.</p>
+          <div class="project-tags">
+            <span class="project-tag">Android</span>
+            <span class="project-tag">XML</span>
+            <span class="project-tag">Java</span>
+            <span class="project-tag">Firebase</span>
+            <span class="project-tag">UI/UX</span>
+          </div>
+        </div>
 
-                    <!-- Slide -->
-                    <div class="swiper-slide">
-                      <div class="card">
-                        <img class="card-image" src="photo/logoEdu.png"
-                        alt="alternative">
-                        <div class="card-body">
-                          <div class="testimonial-author">SD Pelita Hati Jakarta
-                            <br>
-                            <p> 2006 - 2012 </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div> <!-- end of swiper-slide -->
-                    <!-- end of slide -->
-
-                    <!-- Slide -->
-                    <div class="swiper-slide">
-                      <div class="card">
-                        <img class="card-image" src="photo/logoEdu.png"
-                        alt="alternative">
-                        <div class="card-body">
-                          <div class="testimonial-author">SMP Asisi Jakarta
-                            <br>
-                            <p> 2012 - 2015 </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div> <!-- end of swiper-slide -->
-                    <!-- end of slide -->
-
-                    <!-- Slide -->
-                    <div class="swiper-slide">
-                      <div class="card">
-                        <img class="card-image" src="photo/logoEdu.png"
-                        alt="alternative">
-                        <div class="card-body">
-                          <div class="testimonial-author">SMK Asisi Jakarta
-                            <br>
-                            <p> 2015 - 2018 </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div> <!-- end of swiper-slide -->
-                    <!-- end of slide -->
-
-                    <!-- Slide -->
-                    <div class="swiper-slide">
-                      <div class="card">
-                        <img class="card-image" src="photo/logoEdu.png"
-                        alt="alternative">
-                        <div class="card-body">
-                          <div class="testimonial-author">Telkom University
-                            <br>
-                            <p> 2018 - Now </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div> <!-- end of swiper-slide -->
-                    <!-- end of slide -->
-
-                  </div> <!-- end of swiper-wrapper -->
-
-                  <!-- Add Arrows -->
-                  <div class="swiper-button-next"></div>
-                  <div class="swiper-button-prev"></div>
-                  <!-- end of add arrows -->
-
-                </div> <!-- end of swiper-container -->
-              </div> <!-- end of sliedr-container -->
-              <!-- end of card slider -->
-
-            </div> <!-- end of col -->
-          </div> <!-- end of row -->
-        </div> <!-- end of container -->
-      </div> <!-- end of slider -->
-      <!-- end of education -->
-
-      <!-- achievement -->
-      <div id="achievement" class="slider">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-12">
-              <h2>Achievement</h2>
-              <p class="p-heading">This is some of my achievement.</p>
-              </div> <!-- end of col -->
-            </div> <!-- end of row -->
-            <div class="row">
-              <div class="col-lg-12">
-
-                <!-- Card Slider -->
-                <div class="slider-container">
-                  <div class="swiper-container card-slider">
-                    <div class="swiper-wrapper">
-
-                      <!-- Slide -->
-                      <div class="swiper-slide">
-                        <div class="card">
-                          <img class="card-image" src="photo/logoPiala.png"
-                          alt="alternative">
-                          <div class="card-body">
-                            <div class="testimonial-author">1st Place Photo Essay Competition by Atma Jaya
-                              <br>
-                              <p> 2015 </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div> <!-- end of swiper-slide -->
-                      <!-- end of slide -->
-
-                      <!-- Slide -->
-                      <div class="swiper-slide">
-                        <div class="card">
-                          <img class="card-image" src="photo/logoPiala.png"
-                          alt="alternative">
-                          <div class="card-body">
-                            <div class="testimonial-author">Favorite Winner Documentary Video Competition by Atma Jaya
-                              <br>
-                              <p> 2015 </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div> <!-- end of swiper-slide -->
-                      <!-- end of slide -->
-
-                      <!-- Slide -->
-                      <div class="swiper-slide">
-                        <div class="card">
-                          <img class="card-image" src="photo/logoPiala.png"
-                          alt="alternative">
-                          <div class="card-body">
-                            <div class="testimonial-author">9th Place Lomba Keterampilan Siswa (Networking)
-                              <br>
-                              <p> 2018 </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div> <!-- end of swiper-slide -->
-                      <!-- end of slide -->
-
-                      <!-- Slide -->
-                      <div class="swiper-slide">
-                        <div class="card">
-                          <img class="card-image" src="photo/logoPiala.png"
-                          alt="alternative">
-                          <div class="card-body">
-                            <div class="testimonial-author">2nd Place Total National Exam Scores
-                              <br>
-                              <p> 2018 </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div> <!-- end of swiper-slide -->
-                      <!-- end of slide -->
-
-                      <!-- Slide -->
-                      <div class="swiper-slide">
-                        <div class="card">
-                          <img class="card-image" src="photo/logoPiala.png"
-                          alt="alternative">
-                          <div class="card-body">
-                            <div class="testimonial-author">Silver Medal Paku Bumi Pencak Silat Tournament
-                              <br>
-                              <p> 2019 </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div> <!-- end of swiper-slide -->
-                      <!-- end of slide -->
-
-                    </div> <!-- end of swiper-wrapper -->
-
-                    <!-- Add Arrows -->
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                    <!-- end of add arrows -->
-
-                  </div> <!-- end of swiper-container -->
-                </div> <!-- end of sliedr-container -->
-                <!-- end of card slider -->
-
-              </div> <!-- end of col -->
-            </div> <!-- end of row -->
-          </div> <!-- end of container -->
-        </div> <!-- end of slider -->
-        <!-- end of achievement -->
-
-        <!-- experiences -->
-        <div id="experiences" class="slider">
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12">
-                <h2>Experiences</h2>
-                <p class="p-heading">This is some of my experiences.</p>
-                </div> <!-- end of col -->
-              </div> <!-- end of row -->
-              <div class="row">
-                <div class="col-lg-12">
-
-                  <!-- Card Slider -->
-                  <div class="slider-container">
-                    <div class="swiper-container card-slider">
-                      <div class="swiper-wrapper">
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                          <div class="card">
-                            <img class="card-image" src="photo/logoExp.png"
-                            alt="alternative">
-                            <div class="card-body">
-                              <div class="testimonial-author">Assistant of Sisjar Laboratory
-                                <br>
-                                <p> 2020 </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div> <!-- end of swiper-slide -->
-                        <!-- end of slide -->
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                          <div class="card">
-                            <img class="card-image" src="photo/logoExp.png"
-                            alt="alternative">
-                            <div class="card-body">
-                              <div class="testimonial-author">Member of EIM Study Group
-                                <br>
-                                <p> 2019 - Now </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div> <!-- end of swiper-slide -->
-                        <!-- end of slide -->
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                          <div class="card">
-                            <img class="card-image" src="photo/logoExp.png"
-                            alt="alternative">
-                            <div class="card-body">
-                              <div class="testimonial-author">Senior Residence
-                                <br>
-                                <p> 2019 - 2020 </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div> <!-- end of swiper-slide -->
-                        <!-- end of slide -->
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                          <div class="card">
-                            <img class="card-image" src="photo/logoExp.png"
-                            alt="alternative">
-                            <div class="card-body">
-                              <div class="testimonial-author">Internship - IT Support at PT. Asaba
-                                <br>
-                                <p> 2017 </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div> <!-- end of swiper-slide -->
-                        <!-- end of slide -->
-
-                        <!-- Slide -->
-                        <div class="swiper-slide">
-                          <div class="card">
-                            <img class="card-image" src="photo/logoExp.png"
-                            alt="alternative">
-                            <div class="card-body">
-                              <div class="testimonial-author">Internship -  IT Support at PT. Parker Hannifin Indonesia
-                                <br>
-                                <p> 2018 </p>
-                              </div>
-                            </div>
-                          </div>
-                        </div> <!-- end of swiper-slide -->
-                        <!-- end of slide -->
-
-                      </div> <!-- end of swiper-wrapper -->
-
-                      <!-- Add Arrows -->
-                      <div class="swiper-button-next"></div>
-                      <div class="swiper-button-prev"></div>
-                      <!-- end of add arrows -->
-
-                    </div> <!-- end of swiper-container -->
-                  </div> <!-- end of sliedr-container -->
-                  <!-- end of card slider -->
-
-                </div> <!-- end of col -->
-              </div> <!-- end of row -->
-            </div> <!-- end of container -->
-          </div> <!-- end of slider -->
-          <!-- end of experiences -->
+        <div class="project-card glass-card reveal reveal-delay-4">
+          <div class="project-header">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <h4>Sisjar Lab — Academic Leadership</h4>
+          </div>
+          <div class="project-period">Sep 2020 — Feb 2021 · Telkom University</div>
+          <p>Served as a Sisjar Laboratory Practicum Assistant. Arranged comprehensive practicum modules in collaboration with other assistants and taught foundational networking concepts to junior classes.</p>
+          <div class="project-tags">
+            <span class="project-tag">Networking</span>
+            <span class="project-tag">Teaching</span>
+            <span class="project-tag">Lab Assistant</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
-      <!-- Contact -->
-      <div id="contact" class="form-2">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-              <div class="text-container">
-                <div class="section-title">CONTACT</div>
-                <h2 class="hkotak">You can contact me here</h2>
-                <p class="pkotak">Feel free to contact me if you have some interest with me.</p>
-                  <ul class="list-unstyled li-space-lg">
-                    <li class="address"><i class="fas fa-map-marker-alt"></i>Perumahan The River A1/18. Jl. Raya Parung Panjang, Kec. Parung Panjang, Bogor, Jawa Barat, 16360, ID</li>
-                      <li><i class="fas fa-phone"></i><a href="tel:003024630820">+62 838 7908 1890</a></li>
-                      <li><i class="fas fa-phone"></i><a href="tel:003024630820">+62 822 1873 8143</a></li>
-                      <li><i class="fas fa-envelope"></i><a
-                        href="mailto:leonardlesmana888@gmail.com">leonardlesmana888@gmail.com</a></li>
-                      </ul>
-                    </div> <!-- end of text-container -->
-                  </div> <!-- end of col -->
-                  <div class="col-lg-6">
+  <!-- ============ CONTACT ============ -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title reveal">
+        <span class="section-label">Get In Touch</span>
+        <h2>Contact</h2>
+        <p>Feel free to reach out if you'd like to connect or discuss opportunities.</p>
+      </div>
 
-                  </div> <!-- end of col -->
-                </div> <!-- end of row -->
-              </div> <!-- end of container -->
-            </div> <!-- end of form-2 -->
-            <!-- end of contact -->
+      <div class="contact-grid">
+        <a href="mailto:leonardlesmana888@gmail.com" class="contact-card glass-card reveal reveal-delay-1">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <h4>Email</h4>
+          <p>leonardlesmana888@gmail.com</p>
+        </a>
+
+        <a href="https://www.linkedin.com/in/leonard-lesmana/" target="_blank" rel="noopener" class="contact-card glass-card reveal reveal-delay-2">
+          <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
+          <h4>LinkedIn</h4>
+          <p>leonard-lesmana</p>
+        </a>
+
+        <a href="https://github.com/leonard888" target="_blank" rel="noopener" class="contact-card glass-card reveal reveal-delay-3">
+          <div class="contact-icon"><i class="fab fa-github"></i></div>
+          <h4>GitHub</h4>
+          <p>leonard888</p>
+        </a>
+      </div>
+    </div>
+  </section>
 
 
-            <!-- Scripts -->
-            <script src="jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
-            <script src="popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-            <script src="bootstrap.min.js"></script> <!-- Bootstrap framework -->
-            <script src="jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-            <script src="swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-            <script src="jquery.magnific-popup.js"></script> <!-- Magnific Popup for lightboxes -->
-            <script src="morphext.min.js"></script> <!-- Morphtext rotating text in the header -->
-            <script src="isotope.pkgd.min.js"></script> <!-- Isotope for filter -->
-            <script src="validator.min.js"></script> <!-- Validator.js - Bootstrap plugin that validates forms -->
-            <script src="scripts.js"></script> <!-- Custom scripts -->
-          </body>
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/leonard-lesmana/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://github.com/leonard888" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:leonardlesmana888@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+      <p>&copy; 2026 Leonard Lesmana. Built with passion.</p>
+    </div>
+  </footer>
 
-          </html>
+
+  <!-- Scripts -->
+  <script src="scripts.js"></script>
+
+</body>
+
+</html>

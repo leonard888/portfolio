@@ -1,362 +1,211 @@
-/* Template: Aria - Business HTML Landing Page Template
-   Author: Inovatik
-   Created: Jul 2019
-   Description: Custom JS file
-*/
+/* ============================================
+   LEONARD LESMANA — Interactive CV
+   Vanilla JS — Animations & Interactions
+   ============================================ */
 
+document.addEventListener('DOMContentLoaded', () => {
 
-(function($) {
-    "use strict"; 
-	
-	/* Preloader */
-	$(window).on('load', function() {
-		var preloaderFadeOutTime = 500;
-		function hidePreloader() {
-			var preloader = $('.spinner-wrapper');
-			setTimeout(function() {
-				preloader.fadeOut(preloaderFadeOutTime);
-			}, 500);
-		}
-		hidePreloader();
-	});
+  // ——— Typing Effect ———
+  const typingEl = document.getElementById('typing-text');
+  if (typingEl) {
+    const titles = [
+      'IT Helpdesk & Systems Administrator',
+      'IT Service Desk Engineer',
+      'Infrastructure Specialist',
+      'Process Automation Engineer'
+    ];
+    let titleIdx = 0;
+    let charIdx = 0;
+    let isDeleting = false;
+    const typeSpeed = 60;
+    const deleteSpeed = 35;
+    const pauseEnd = 2000;
+    const pauseStart = 500;
 
-	
-	/* Navbar Scripts */
-	// jQuery to collapse the navbar on scroll
-    $(window).on('scroll load', function() {
-		if ($(".navbar").offset().top > 20) {
-			$(".fixed-top").addClass("top-nav-collapse");
-		} else {
-			$(".fixed-top").removeClass("top-nav-collapse");
-		}
-    });
+    function type() {
+      const current = titles[titleIdx];
 
-	// jQuery for page scrolling feature - requires jQuery Easing plugin
-	$(function() {
-		$(document).on('click', 'a.page-scroll', function(event) {
-			var $anchor = $(this);
-			$('html, body').stop().animate({
-				scrollTop: $($anchor.attr('href')).offset().top
-			}, 600, 'easeInOutExpo');
-			event.preventDefault();
-		});
-	});
-
-    // closes the responsive menu on menu item click
-    $(".navbar-nav li a").on("click", function(event) {
-    if (!$(this).parent().hasClass('dropdown'))
-        $(".navbar-collapse").collapse('hide');
-    });
-
-
-    /* Rotating Text - Morphtext */
-	$("#js-rotating").Morphext({
-		// The [in] animation type. Refer to Animate.css for a list of available animations.
-		animation: "fadeIn",
-		// An array of phrases to rotate are created based on this separator. Change it if you wish to separate the phrases differently (e.g. So Simple | Very Doge | Much Wow | Such Cool).
-		separator: ",",
-		// The delay between the changing of each phrase in milliseconds.
-		speed: 2000,
-		complete: function () {
-			// Called after the entrance animation is executed.
-		}
-    });
-    
-
-    /* Card Slider - Swiper */
-	var cardSlider = new Swiper('.card-slider', {
-		autoplay: {
-            delay: 4000,
-            disableOnInteraction: false
-		},
-        loop: true,
-        navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev'
-		},
-		slidesPerView: 3,
-		spaceBetween: 20,
-        breakpoints: {
-            // when window is <= 992px
-            992: {
-                slidesPerView: 2
-            },
-            // when window is <= 768px
-            768: {
-                slidesPerView: 1
-            } 
+      if (!isDeleting) {
+        typingEl.textContent = current.substring(0, charIdx + 1);
+        charIdx++;
+        if (charIdx === current.length) {
+          isDeleting = true;
+          setTimeout(type, pauseEnd);
+          return;
         }
-    });
-
-    
-    /* Lightbox - Magnific Popup */
-	$('.popup-with-move-anim').magnificPopup({
-		type: 'inline',
-		fixedContentPos: false, /* keep it false to avoid html tag shift with margin-right: 17px */
-		fixedBgPos: true,
-		overflowY: 'auto',
-		closeBtnInside: true,
-		preloader: false,
-		midClick: true,
-		removalDelay: 300,
-		mainClass: 'my-mfp-slide-bottom'
-    });
-    
-
-    /* Filter - Isotope */
-    var $grid = $('.grid').isotope({
-        // options
-        itemSelector: '.element-item',
-        layoutMode: 'fitRows'
-    });
-    
-    // filter items on button click
-    $('.filters-button-group').on( 'click', 'a', function() {
-        var filterValue = $(this).attr('data-filter');
-        $grid.isotope({ filter: filterValue });
-    });
-    
-    // change is-checked class on buttons
-    $('.button-group').each( function( i, buttonGroup ) {
-        var $buttonGroup = $( buttonGroup );
-        $buttonGroup.on( 'click', 'a', function() {
-            $buttonGroup.find('.is-checked').removeClass('is-checked');
-            $( this ).addClass('is-checked');
-        });	
-    });
-    
-
-    /* Counter - CountTo */
-	var a = 0;
-	$(window).scroll(function() {
-		if ($('#counter').length) { // checking if CountTo section exists in the page, if not it will not run the script and avoid errors	
-			var oTop = $('#counter').offset().top - window.innerHeight;
-			if (a == 0 && $(window).scrollTop() > oTop) {
-			$('.counter-value').each(function() {
-				var $this = $(this),
-				countTo = $this.attr('data-count');
-				$({
-				countNum: $this.text()
-				}).animate({
-					countNum: countTo
-				},
-				{
-					duration: 2000,
-					easing: 'swing',
-					step: function() {
-					$this.text(Math.floor(this.countNum));
-					},
-					complete: function() {
-					$this.text(this.countNum);
-					//alert('finished');
-					}
-				});
-			});
-			a = 1;
-			}
-		}
-    });
-
-
-    /* Move Form Fields Label When User Types */
-    // for input and textarea fields
-    $("input, textarea").keyup(function(){
-		if ($(this).val() != '') {
-			$(this).addClass('notEmpty');
-		} else {
-			$(this).removeClass('notEmpty');
-		}
-    });
-
-
-    /* Call Me Form */
-    $("#callMeForm").validator().on("submit", function(event) {
-    	if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            lformError();
-            lsubmitMSG(false, "Please fill all fields!");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-            lsubmitForm();
+        setTimeout(type, typeSpeed);
+      } else {
+        typingEl.textContent = current.substring(0, charIdx - 1);
+        charIdx--;
+        if (charIdx === 0) {
+          isDeleting = false;
+          titleIdx = (titleIdx + 1) % titles.length;
+          setTimeout(type, pauseStart);
+          return;
         }
-    });
-
-    function lsubmitForm() {
-        // initiate variables with form content
-		var name = $("#lname").val();
-		var phone = $("#lphone").val();
-		var email = $("#lemail").val();
-		var select = $("#lselect").val();
-        var terms = $("#lterms").val();
-        
-        $.ajax({
-            type: "POST",
-            url: "php/callmeform-process.php",
-            data: "name=" + name + "&phone=" + phone + "&email=" + email + "&select=" + select + "&terms=" + terms, 
-            success: function(text) {
-                if (text == "success") {
-                    lformSuccess();
-                } else {
-                    lformError();
-                    lsubmitMSG(false, text);
-                }
-            }
-        });
-	}
-
-    function lformSuccess() {
-        $("#callMeForm")[0].reset();
-        lsubmitMSG(true, "Request Submitted!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
+        setTimeout(type, deleteSpeed);
+      }
     }
 
-    function lformError() {
-        $("#callMeForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
+    setTimeout(type, 1000);
+  }
 
-    function lsubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
-        }
-        $("#lmsgSubmit").removeClass().addClass(msgClasses).text(msg);
+
+  // ——— Navbar Scroll Behavior ———
+  const navbar = document.getElementById('navbar');
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+  function handleNavScroll() {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
     }
 
-
-    /* Contact Form */
-    $("#contactForm").validator().on("submit", function(event) {
-    	if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            cformError();
-            csubmitMSG(false, "Please fill all fields!");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-            csubmitForm();
-        }
+    // Active section tracking
+    let current = '';
+    sections.forEach(section => {
+      const top = section.offsetTop - 120;
+      if (window.scrollY >= top) {
+        current = section.getAttribute('id');
+      }
     });
 
-    function csubmitForm() {
-        // initiate variables with form content
-		var name = $("#cname").val();
-		var email = $("#cemail").val();
-        var message = $("#cmessage").val();
-        var terms = $("#cterms").val();
-        $.ajax({
-            type: "POST",
-            url: "php/contactform-process.php",
-            data: "name=" + name + "&email=" + email + "&message=" + message + "&terms=" + terms, 
-            success: function(text) {
-                if (text == "success") {
-                    cformSuccess();
-                } else {
-                    cformError();
-                    csubmitMSG(false, text);
-                }
-            }
-        });
-	}
-
-    function cformSuccess() {
-        $("#contactForm")[0].reset();
-        csubmitMSG(true, "Message Submitted!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
-        $("textarea").removeClass('notEmpty'); // resets the field label after submission
-    }
-
-    function cformError() {
-        $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
-
-    function csubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
-        }
-        $("#cmsgSubmit").removeClass().addClass(msgClasses).text(msg);
-    }
-
-
-    /* Privacy Form */
-    $("#privacyForm").validator().on("submit", function(event) {
-    	if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            pformError();
-            psubmitMSG(false, "Please fill all fields!");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-            psubmitForm();
-        }
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
     });
+  }
 
-    function psubmitForm() {
-        // initiate variables with form content
-		var name = $("#pname").val();
-		var email = $("#pemail").val();
-        var select = $("#pselect").val();
-        var terms = $("#pterms").val();
-        
-        $.ajax({
-            type: "POST",
-            url: "php/privacyform-process.php",
-            data: "name=" + name + "&email=" + email + "&select=" + select + "&terms=" + terms, 
-            success: function(text) {
-                if (text == "success") {
-                    pformSuccess();
-                } else {
-                    pformError();
-                    psubmitMSG(false, text);
-                }
-            }
-        });
-	}
+  window.addEventListener('scroll', handleNavScroll, { passive: true });
+  handleNavScroll();
 
-    function pformSuccess() {
-        $("#privacyForm")[0].reset();
-        psubmitMSG(true, "Request Submitted!");
-        $("input").removeClass('notEmpty'); // resets the field label after submission
-    }
 
-    function pformError() {
-        $("#privacyForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-            $(this).removeClass();
-        });
-	}
+  // ——— Mobile Menu ———
+  const navToggle = document.getElementById('nav-toggle');
+  const navLinksContainer = document.getElementById('nav-links');
+  const mobileOverlay = document.getElementById('mobile-overlay');
 
-    function psubmitMSG(valid, msg) {
-        if (valid) {
-            var msgClasses = "h3 text-center tada animated";
-        } else {
-            var msgClasses = "h3 text-center";
-        }
-        $("#pmsgSubmit").removeClass().addClass(msgClasses).text(msg);
-    }
-    
+  function toggleMenu() {
+    navToggle.classList.toggle('active');
+    navLinksContainer.classList.toggle('open');
+    mobileOverlay.classList.toggle('active');
+    document.body.style.overflow = navLinksContainer.classList.contains('open') ? 'hidden' : '';
+  }
 
-    /* Back To Top Button */
-    // create the back to top button
-    $('body').prepend('<a href="body" class="back-to-top page-scroll">Back to Top</a>');
-    var amountScrolled = 700;
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > amountScrolled) {
-            $('a.back-to-top').fadeIn('500');
-        } else {
-            $('a.back-to-top').fadeOut('500');
-        }
+  function closeMenu() {
+    navToggle.classList.remove('active');
+    navLinksContainer.classList.remove('open');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  navToggle.addEventListener('click', toggleMenu);
+  mobileOverlay.addEventListener('click', closeMenu);
+
+  // Close menu on link click
+  navLinksContainer.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+
+  // ——— Smooth Scroll ———
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', (e) => {
+      e.preventDefault();
+      const target = document.querySelector(anchor.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
+  });
 
 
-	/* Removes Long Focus On Buttons */
-	$(".button, a, button").mouseup(function() {
-		$(this).blur();
-	});
+  // ——— Scroll Reveal (Intersection Observer) ———
+  const revealElements = document.querySelectorAll('.reveal');
 
-})(jQuery);
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('revealed');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  revealElements.forEach(el => revealObserver.observe(el));
+
+
+  // ——— Stat Counter Animation ———
+  const statNumbers = document.querySelectorAll('.stat-number');
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  statNumbers.forEach(el => counterObserver.observe(el));
+
+  function animateCounter(el) {
+    const target = el.getAttribute('data-target');
+    const suffix = el.getAttribute('data-suffix') || '';
+    const prefix = el.getAttribute('data-prefix') || '';
+    const isNumber = !isNaN(parseInt(target));
+
+    if (!isNumber) {
+      el.textContent = prefix + target + suffix;
+      return;
+    }
+
+    const end = parseInt(target);
+    const duration = 1500;
+    const start = performance.now();
+
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      // Ease out cubic
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * end);
+
+      el.textContent = prefix + current + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      } else {
+        el.textContent = prefix + end + suffix;
+      }
+    }
+
+    requestAnimationFrame(update);
+  }
+
+
+  // ——— Timeline Expand/Collapse ———
+  document.querySelectorAll('.expand-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const details = btn.closest('.timeline-card').querySelector('.timeline-details');
+      const isExpanded = details.classList.contains('expanded');
+
+      details.classList.toggle('expanded');
+      btn.classList.toggle('expanded');
+
+      if (isExpanded) {
+        btn.innerHTML = 'Show Details <i class="fas fa-chevron-down"></i>';
+      } else {
+        btn.innerHTML = 'Hide Details <i class="fas fa-chevron-down"></i>';
+      }
+    });
+  });
+
+});
