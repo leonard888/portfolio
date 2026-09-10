@@ -5,6 +5,55 @@
    and Apple Bento Grid architecture.
    ============================================================ */
 
+/* ---------- 0. Google Sans & Product Sans Font Faces ---------- */
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Google Sans Regular'), local('Google Sans'), local('Product Sans'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Google Sans Medium'), local('Product Sans Medium'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Google Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Google Sans Bold'), local('Product Sans Bold'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Product Sans'), local('Google Sans'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Product Sans Medium'), local('Google Sans Medium'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Product Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Product Sans Bold'), local('Google Sans Bold'), url('https://fonts.cdnfonts.com/s/14955/ProductSans-Bold.woff') format('woff');
+}
+
 /* ---------- 1. Design Tokens ---------- */
 :root {
   /* Canvas & Surfaces */
@@ -21,8 +70,8 @@
   --border-active: rgba(255, 255, 255, 0.4);
 
   /* Apple & Google Keynote Typography Palette */
-  --text-primary: #f5f5f7;        /* Apple crisp white */
-  --text-secondary: #86868b;      /* Apple iconic muted gray */
+  --text-primary: #f5f5f7;        /* Crisp white */
+  --text-secondary: #86868b;      /* Iconic muted gray */
   --text-tertiary: #636366;       /* Subtle detail text */
   --text-inverse: #000000;
 
@@ -37,7 +86,7 @@
   --glow-purple: rgba(161, 66, 244, 0.12);
 
   /* Fonts */
-  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Segoe UI", sans-serif;
+  --font-sans: "Google Sans", "Product Sans", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
   --font-mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
 
   /* Layout & Radii */
