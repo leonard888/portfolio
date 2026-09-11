@@ -5,6 +5,28 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ——— 0. Ultra-smooth Momentum Scrolling (Lenis) ———
+  let lenis = null;
+  if (typeof Lenis !== 'undefined') {
+    lenis = new Lenis({
+      duration: 1.15,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1.0,
+      touchMultiplier: 1.5,
+      infinite: false,
+    });
+
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+    requestAnimationFrame(raf);
+  }
+
+
   // ——— 1. Keynote Typewriter Effect ———
   const typingEl = document.getElementById('typing-text');
   if (typingEl) {
@@ -56,15 +78,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
 
-  function handleNavbar() {
-    if (window.scrollY > 40) {
+  let isScrollTicking = false;
+
+  function updateNavbar() {
+    const scrollY = window.scrollY || window.pageYOffset;
+    if (scrollY > 30) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
 
     let activeId = '';
-    const scrollPos = window.scrollY + 140;
+    const scrollPos = scrollY + 160;
 
     sections.forEach(section => {
       const top = section.offsetTop;
@@ -75,15 +100,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     navLinks.forEach(link => {
-      link.classList.remove('active');
       if (link.getAttribute('href') === '#' + activeId) {
         link.classList.add('active');
+      } else {
+        link.classList.remove('active');
       }
     });
+
+    isScrollTicking = false;
   }
 
-  window.addEventListener('scroll', handleNavbar, { passive: true });
-  handleNavbar();
+  function handleNavbar() {
+    if (!isScrollTicking) {
+      requestAnimationFrame(updateNavbar);
+      isScrollTicking = true;
+    }
+  }
+
+  if (lenis) {
+    lenis.on('scroll', handleNavbar);
+  } else {
+    window.addEventListener('scroll', handleNavbar, { passive: true });
+  }
+  updateNavbar();
 
 
   // ——— 3. Mobile Navigation Menu ———
@@ -115,11 +154,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
       const targetId = anchor.getAttribute('href');
-      if (targetId === '#') return;
+      if (!targetId || targetId === '#') return;
       const targetElement = document.querySelector(targetId);
       if (targetElement) {
         e.preventDefault();
-        targetElement.scrollIntoView({ behavior: 'smooth' });
+        if (lenis) {
+          lenis.scrollTo(targetElement, { offset: -65 });
+        } else {
+          targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
       }
     });
   });
@@ -135,8 +178,8 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -25px 0px'
   });
 
   revealItems.forEach(item => revealObserver.observe(item));

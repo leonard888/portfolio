@@ -82,8 +82,8 @@
   --google-purple: #a142f4;
   --accent-gold: #ffd60a;
   --accent-emerald: #30d158;
-  --glow-blue: rgba(41, 151, 255, 0.15);
-  --glow-purple: rgba(161, 66, 244, 0.12);
+  --glow-blue: rgba(41, 151, 255, 0.38);
+  --glow-purple: rgba(161, 66, 244, 0.16);
 
   /* Fonts */
   --font-sans: "Google Sans", "Product Sans", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
@@ -113,13 +113,33 @@
 }
 
 html {
-  scroll-behavior: smooth;
   scroll-padding-top: 76px;
   background-color: var(--canvas);
   color: var(--text-primary);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Lenis smooth scrolling support */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
@@ -130,7 +150,7 @@ body {
   position: relative;
 }
 
-/* Ambient Keynote Vignette / Lighting Glow */
+/* Ambient Keynote Vignette / Lighting Glow (Top Center) */
 body::before {
   content: "";
   position: fixed;
@@ -138,8 +158,9 @@ body::before {
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
+  max-width: 1300px;
   height: 700px;
-  background: radial-gradient(ellipse 65% 45% at 50% 0%, var(--glow-blue) 0%, rgba(0, 0, 0, 0) 70%);
+  background: radial-gradient(ellipse 70% 50% at 50% -5%, rgba(41, 151, 255, 0.38) 0%, rgba(20, 90, 220, 0.16) 45%, transparent 75%);
   pointer-events: none;
   z-index: 0;
 }
@@ -380,6 +401,22 @@ img {
   padding-top: 100px;
   padding-bottom: 60px;
   position: relative;
+  overflow: hidden;
+}
+
+/* Hero Center Top Ambient Spotlight */
+.hero-keynote::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: clamp(550px, 85vw, 1050px);
+  height: 540px;
+  background: radial-gradient(ellipse 60% 55% at 50% 25%, rgba(41, 151, 255, 0.48) 0%, rgba(29, 114, 237, 0.24) 38%, rgba(13, 71, 161, 0.08) 65%, transparent 80%);
+  filter: blur(45px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .hero-inner {
@@ -655,6 +692,7 @@ img {
 .spec-number.gradient-blue {
   background: linear-gradient(135deg, #ffffff 40%, var(--apple-blue) 100%);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
@@ -975,6 +1013,13 @@ img {
   color: var(--text-tertiary);
 }
 
+.edu-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
 /* ---------- 12. Apple Closing CTA Section ---------- */
 .closing-cta {
   padding: clamp(100px, 14vw, 160px) 0 80px 0;
@@ -1073,13 +1118,15 @@ img {
 /* ---------- 14. Scroll Reveal Keynote Animations ---------- */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.8s var(--ease-apple), transform 0.8s var(--ease-apple);
+  transform: translate3d(0, 26px, 0);
+  transition: opacity 0.65s var(--ease-apple), transform 0.65s var(--ease-apple);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
+  will-change: auto;
 }
 
 .reveal-delay-1 { transition-delay: 0.1s; }
