@@ -100,6 +100,15 @@
 
   <!-- ============ FLOATING SECTIONS NAVIGATION (LIQUID GLASS CONTAINER) ============ -->
   <aside class="doc-tabs-panel" id="doc-tabs" aria-label="Document Sections Navigation">
+    <!-- Floating Light / Dark Mode Toggle Above Section Tabs -->
+    <div class="doc-tabs-theme-wrap">
+      <button class="doc-tabs-floating-theme" id="doc-tabs-theme-toggle" aria-label="Toggle Light / Dark Mode" title="Switch to Light Mode" data-tooltip="Switch to Light Mode">
+        <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+        <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+        <span class="floating-theme-text" id="floating-theme-text">Light Mode</span>
+      </button>
+    </div>
+
     <div class="doc-tabs-glass">
       <div class="doc-tabs-header">
         <div class="doc-tabs-title">
@@ -107,10 +116,6 @@
           <span>Sections</span>
         </div>
         <div class="doc-tabs-controls">
-          <button class="doc-tabs-action" id="doc-tabs-theme-toggle" title="Switch to Light Mode" aria-label="Toggle Light / Dark Mode">
-            <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
-            <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
-          </button>
           <button class="doc-tabs-action" id="doc-tabs-scroll-top" title="Scroll to top" aria-label="Scroll to top">
             <i class="fa-solid fa-arrow-up"></i>
           </button>

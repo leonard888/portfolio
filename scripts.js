@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ——— 0.1. Apple Light / Dark Mode System (Inverted Monochrome Scheme) ———
   const themeToggleNavbar = document.getElementById('theme-toggle');
   const themeToggleDock = document.getElementById('doc-tabs-theme-toggle');
+  const floatingThemeText = document.getElementById('floating-theme-text');
   const themeToggles = [themeToggleNavbar, themeToggleDock].filter(Boolean);
 
   let onCanvasThemeChange = null;
@@ -50,7 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
     themeToggles.forEach(btn => {
       btn.setAttribute('title', titleText);
       btn.setAttribute('aria-label', titleText);
+      btn.setAttribute('data-tooltip', titleText);
     });
+
+    if (floatingThemeText) {
+      floatingThemeText.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+    }
 
     if (typeof onCanvasThemeChange === 'function') {
       onCanvasThemeChange(isLight);

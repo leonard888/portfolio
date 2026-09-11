@@ -289,18 +289,18 @@ img {
   background: var(--nav-bg);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--hairline-subtle);
+  border-bottom: none;
   z-index: 1000;
   display: flex;
   align-items: center;
   transform: translateZ(0);
   will-change: transform, opacity;
-  transition: transform 0.45s var(--ease-apple), opacity 0.35s ease, background-color var(--duration-base) var(--ease-apple), border-color var(--duration-base) var(--ease-apple);
+  transition: transform 0.45s var(--ease-apple), opacity 0.35s ease, background-color var(--duration-base) var(--ease-apple);
 }
 
 .navbar.scrolled {
   background: var(--nav-bg-scrolled);
-  border-bottom-color: var(--hairline);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .navbar.nav-hidden {
@@ -458,12 +458,77 @@ img {
   z-index: 990;
   will-change: transform, opacity;
   transition: transform 0.45s var(--ease-apple), opacity 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .doc-tabs-panel.visible {
   transform: translateY(-50%) translateX(0) translateZ(0);
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Floating Light / Dark Mode Toggle Above Section Tabs */
+.doc-tabs-theme-wrap {
+  width: 100%;
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  transition: all 0.35s var(--ease-apple);
+}
+
+.doc-tabs-floating-theme {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 7px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px) saturate(210%);
+  -webkit-backdrop-filter: blur(28px) saturate(210%);
+  border: 1px solid var(--glass-border);
+  border-top: 1px solid var(--glass-border-top);
+  box-shadow: var(--glass-shadow);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: -0.01em;
+  transition: all 0.3s var(--ease-apple);
+  user-select: none;
+  position: relative;
+}
+
+.doc-tabs-floating-theme:hover {
+  background: var(--glass-active-bg);
+  border-color: var(--glass-active-border);
+  transform: translateY(-1.5px);
+  box-shadow: 0 12px 28px -6px rgba(0, 0, 0, 0.55);
+  color: var(--text-accent);
+}
+
+.doc-tabs-floating-theme:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.doc-tabs-floating-theme i {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.doc-tabs-floating-theme:hover i {
+  color: var(--text-primary);
+}
+
+.floating-theme-text {
+  transition: color 0.2s ease, opacity 0.25s ease;
 }
 
 /* Liquid Glass Shell (reactbits.dev/components/glass-surface Inspired) */
@@ -568,14 +633,14 @@ img {
 /* Tree Navigation */
 .doc-tabs-tree {
   position: relative;
-  padding-left: 8px;
+  padding-left: 14px;
   z-index: 1;
   transition: padding 0.3s ease;
 }
 
 .doc-tabs-tree-line {
   position: absolute;
-  left: 17px;
+  left: 2px;
   top: 12px;
   bottom: 12px;
   width: 1.5px;
@@ -679,9 +744,54 @@ img {
   display: none;
 }
 
-.doc-tabs-panel.collapsed #doc-tabs-scroll-top,
-.doc-tabs-panel.collapsed #doc-tabs-theme-toggle {
+.doc-tabs-panel.collapsed #doc-tabs-scroll-top {
   display: none;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-theme-wrap {
+  justify-content: center;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-floating-theme {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  max-width: 36px;
+  padding: 0;
+  border-radius: 50%;
+  justify-content: center;
+}
+
+.doc-tabs-panel.collapsed .floating-theme-text {
+  display: none;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-floating-theme::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: var(--tooltip-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--tooltip-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: var(--tooltip-text);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 7px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-floating-theme:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
 }
 
 .doc-tabs-panel.collapsed .doc-tabs-controls {
@@ -1918,19 +2028,36 @@ img {
   color: #1d1d1f;
 }
 
-/* Light Mode Mobile Nav Menu Drawer */
-[data-theme="light"] .nav-menu {
-  background: #ffffff;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+/* Floating Theme Button Light Mode Overrides */
+[data-theme="light"] .doc-tabs-floating-theme:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.25);
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.12);
+  color: #000000;
 }
 
-[data-theme="light"] .nav-menu a {
+[data-theme="light"] .doc-tabs-panel.collapsed .doc-tabs-floating-theme::before {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.04);
   color: #1d1d1f;
 }
 
-[data-theme="light"] .nav-menu a:hover,
-[data-theme="light"] .nav-menu a.active {
-  color: #000000;
+/* Light Mode Mobile Nav Menu Drawer */
+@media (max-width: 768px) {
+  [data-theme="light"] .nav-menu {
+    background: #ffffff;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  [data-theme="light"] .nav-menu a {
+    color: #1d1d1f;
+  }
+
+  [data-theme="light"] .nav-menu a:hover,
+  [data-theme="light"] .nav-menu a.active {
+    color: #000000;
+  }
 }
 
 [data-theme="light"] .bento-tag:hover {
