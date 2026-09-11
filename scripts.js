@@ -27,6 +27,55 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  // ——— 0.1. Apple Light / Dark Mode System (Inverted Monochrome Scheme) ———
+  const themeToggleNavbar = document.getElementById('theme-toggle');
+  const themeToggleDock = document.getElementById('doc-tabs-theme-toggle');
+  const themeToggles = [themeToggleNavbar, themeToggleDock].filter(Boolean);
+
+  let onCanvasThemeChange = null;
+
+  function applyTheme(theme, save = true) {
+    const isLight = theme === 'light';
+    if (isLight) {
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+
+    if (save) {
+      localStorage.setItem('leonard-portfolio-theme', isLight ? 'light' : 'dark');
+    }
+
+    const titleText = isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+    themeToggles.forEach(btn => {
+      btn.setAttribute('title', titleText);
+      btn.setAttribute('aria-label', titleText);
+    });
+
+    if (typeof onCanvasThemeChange === 'function') {
+      onCanvasThemeChange(isLight);
+    }
+  }
+
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    applyTheme(newTheme, true);
+  }
+
+  themeToggles.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggleTheme();
+    });
+  });
+
+  // Sync initial button states
+  const initialTheme = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  applyTheme(initialTheme, false);
+
+
   // ——— 1. Keynote Typewriter Effect ———
   const typingEl = document.getElementById('typing-text');
   if (typingEl) {
@@ -394,12 +443,18 @@ document.addEventListener('DOMContentLoaded', () => {
       wakeLoop();
     }, { passive: true });
 
+    onCanvasThemeChange = () => {
+      drawStatic();
+      wakeLoop();
+    };
+
     function drawStatic() {
       ctx.clearRect(0, 0, width, height);
       const cols = Math.ceil(width / spacing) + 1;
       const rows = Math.ceil(height / spacing) + 1;
       const offsetX = (width % spacing) / 2;
       const offsetY = (height % spacing) / 2;
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
 
       ctx.beginPath();
       for (let col = 0; col < cols; col++) {
@@ -410,7 +465,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ctx.arc(x, y, 0.95, 0, Math.PI * 2);
         }
       }
-      ctx.fillStyle = 'rgba(165, 170, 185, 0.035)';
+      ctx.fillStyle = isLight ? 'rgba(90, 95, 110, 0.085)' : 'rgba(165, 170, 185, 0.035)';
       ctx.fill();
     }
 
@@ -438,6 +493,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const offsetY = (height % spacing) / 2;
 
       const hasMouse = mouse.x > -200 && mouse.y > -200;
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
 
       // 1. Grid connecting lines (drawn only within hover bounding box)
       if (hasMouse) {
@@ -453,8 +509,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const x = offsetX + c * spacing;
           const dist = Math.abs(x - mouse.x);
           if (dist < hoverRadius) {
-            const alpha = (1 - dist / hoverRadius) * 0.035;
-            ctx.strokeStyle = `rgba(165, 170, 185, ${alpha})`;
+            const alpha = (1 - dist / hoverRadius) * (isLight ? 0.055 : 0.035);
+            ctx.strokeStyle = isLight ? `rgba(90, 95, 110, ${alpha})` : `rgba(165, 170, 185, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.moveTo(x, minY);
             ctx.lineTo(x, maxY);
@@ -467,8 +523,8 @@ document.addEventListener('DOMContentLoaded', () => {
           const y = offsetY + r * spacing;
           const dist = Math.abs(y - mouse.y);
           if (dist < hoverRadius) {
-            const alpha = (1 - dist / hoverRadius) * 0.035;
-            ctx.strokeStyle = `rgba(165, 170, 185, ${alpha})`;
+            const alpha = (1 - dist / hoverRadius) * (isLight ? 0.055 : 0.035);
+            ctx.strokeStyle = isLight ? `rgba(90, 95, 110, ${alpha})` : `rgba(165, 170, 185, ${alpha})`;
             ctx.lineWidth = 1;
             ctx.moveTo(minX, y);
             ctx.lineTo(maxX, y);
@@ -491,7 +547,7 @@ document.addEventListener('DOMContentLoaded', () => {
           ctx.arc(x, y, 0.95, 0, Math.PI * 2);
         }
       }
-      ctx.fillStyle = 'rgba(165, 170, 185, 0.035)';
+      ctx.fillStyle = isLight ? 'rgba(90, 95, 110, 0.085)' : 'rgba(165, 170, 185, 0.035)';
       ctx.fill();
 
       // 3. Render ONLY active dots near mouse or ripples (typically < 30 dots!)
@@ -541,7 +597,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             ctx.beginPath();
             ctx.arc(dotX, dotY, radius, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(165, 170, 185, ${Math.min(alpha, 0.28)})`;
+            ctx.fillStyle = isLight 
+              ? `rgba(50, 55, 70, ${Math.min(alpha * 1.5, 0.32)})` 
+              : `rgba(165, 170, 185, ${Math.min(alpha, 0.28)})`;
             ctx.fill();
           }
         }

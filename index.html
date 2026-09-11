@@ -35,6 +35,16 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
+  <!-- Early Theme Detection Script (Prevents FOUC) -->
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('leonard-portfolio-theme');
+      if (savedTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+
   <!-- Apple Seamless Stylesheet -->
   <link href="styles.css" rel="stylesheet">
 
@@ -72,11 +82,18 @@
         </ul>
       </nav>
 
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <div class="nav-right">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Light / Dark Mode" title="Switch to Light Mode">
+          <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+          <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+        </button>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -90,6 +107,10 @@
           <span>Sections</span>
         </div>
         <div class="doc-tabs-controls">
+          <button class="doc-tabs-action" id="doc-tabs-theme-toggle" title="Switch to Light Mode" aria-label="Toggle Light / Dark Mode">
+            <i class="fa-solid fa-sun icon-sun" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon icon-moon" aria-hidden="true"></i>
+          </button>
           <button class="doc-tabs-action" id="doc-tabs-scroll-top" title="Scroll to top" aria-label="Scroll to top">
             <i class="fa-solid fa-arrow-up"></i>
           </button>
