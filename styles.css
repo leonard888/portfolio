@@ -1,8 +1,8 @@
 /* ============================================================
    LEONARD LESMANA — Interactive CV
-   Design System: Apple & Google I/O Keynote Minimalist
-   Pure pitch-black canvas, high-contrast typography, pill controls,
-   and Apple Bento Grid architecture.
+   Design System: Apple Product Landing Page (Seamless & Boundless)
+   Pure pitch-black canvas, pure white ambient stage glow,
+   central dashed guide line, open typography without boxes.
    ============================================================ */
 
 /* ---------- 0. Google Sans & Product Sans Font Faces ---------- */
@@ -58,32 +58,33 @@
 :root {
   /* Canvas & Surfaces */
   --canvas: #000000;
-  --surface-base: #070709;
-  --surface-card: #0e0e11;
-  --surface-card-hover: #15151a;
+  --surface-subtle: rgba(255, 255, 255, 0.03);
   --surface-pill: rgba(255, 255, 255, 0.06);
-  --surface-pill-hover: rgba(255, 255, 255, 0.12);
+  --surface-pill-hover: rgba(255, 255, 255, 0.14);
 
-  /* Hairline Borders */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(255, 255, 255, 0.22);
-  --border-active: rgba(255, 255, 255, 0.4);
+  /* Hairline Borders & Dividers */
+  --hairline: rgba(255, 255, 255, 0.1);
+  --hairline-subtle: rgba(255, 255, 255, 0.06);
+  --hairline-hover: rgba(255, 255, 255, 0.28);
 
-  /* Apple & Google Keynote Typography Palette */
+  /* Apple Monochrome & Keynote Palette */
   --text-primary: #f5f5f7;        /* Crisp white */
-  --text-secondary: #86868b;      /* Iconic muted gray */
-  --text-tertiary: #636366;       /* Subtle detail text */
-  --text-inverse: #000000;
+  --text-secondary: #86868b;      /* Iconic Apple muted gray */
+  --text-tertiary: #545458;       /* Subtle detail text */
+  --text-accent: #ffffff;
 
-  /* Accents */
-  --apple-blue: #2997ff;
-  --apple-blue-hover: #0077ed;
-  --google-blue: #4285f4;
-  --google-purple: #a142f4;
-  --accent-gold: #ffd60a;
+  /* Accents & Status */
   --accent-emerald: #30d158;
-  --glow-blue: rgba(41, 151, 255, 0.38);
-  --glow-purple: rgba(161, 66, 244, 0.16);
+  --accent-gold: #ffd60a;
+  --apple-blue: #2997ff;
+
+  /* Luxury White Spotlight Glow Tokens */
+  --glow-white-core: rgba(255, 255, 255, 0.32);
+  --glow-white-spread: rgba(255, 255, 255, 0.08);
+
+  /* Central Guide Spine */
+  --guide-line: rgba(255, 255, 255, 0.18);
+  --guide-line-active: rgba(255, 255, 255, 0.5);
 
   /* Fonts */
   --font-sans: "Google Sans", "Product Sans", "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", "Segoe UI", sans-serif;
@@ -91,11 +92,9 @@
 
   /* Layout & Radii */
   --radius-pill: 980px;
-  --radius-card: 24px;
-  --radius-card-lg: 32px;
   --radius-sm: 12px;
-  --container-max: 1140px;
-  --section-spacing: clamp(90px, 12vw, 140px);
+  --container-max: 1000px;
+  --section-spacing: clamp(40px, 5.5vw, 64px);
 
   /* Apple signature fluid ease */
   --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
@@ -150,7 +149,7 @@ body {
   position: relative;
 }
 
-/* Ambient Keynote Vignette / Lighting Glow (Top Center) */
+/* Ambient Apple Pure White Lighting Glow (Top Center) */
 body::before {
   content: "";
   position: fixed;
@@ -158,11 +157,23 @@ body::before {
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  max-width: 1300px;
-  height: 700px;
-  background: radial-gradient(ellipse 70% 50% at 50% -5%, rgba(41, 151, 255, 0.38) 0%, rgba(20, 90, 220, 0.16) 45%, transparent 75%);
+  max-width: 1200px;
+  height: 650px;
+  background: radial-gradient(ellipse 65% 45% at 50% -10%, var(--glow-white-core) 0%, var(--glow-white-spread) 45%, transparent 75%);
   pointer-events: none;
   z-index: 0;
+}
+
+/* Interactive Cursor Grid / Dot Field Canvas */
+.cursor-grid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 0;
+  transform: translateZ(0);
 }
 
 a {
@@ -190,20 +201,28 @@ img {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
+  height: 56px;
   background: rgba(0, 0, 0, 0.72);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border-bottom: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--hairline-subtle);
   z-index: 1000;
   display: flex;
   align-items: center;
-  transition: background-color var(--duration-base) var(--ease-apple), border-color var(--duration-base) var(--ease-apple);
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  transition: transform 0.45s var(--ease-apple), opacity 0.35s ease, background-color var(--duration-base) var(--ease-apple), border-color var(--duration-base) var(--ease-apple);
 }
 
 .navbar.scrolled {
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom-color: rgba(255, 255, 255, 0.12);
+  background: rgba(0, 0, 0, 0.88);
+  border-bottom-color: var(--hairline);
+}
+
+.navbar.nav-hidden {
+  transform: translateY(-100%) translateZ(0);
+  opacity: 0;
+  pointer-events: none;
 }
 
 .navbar .container {
@@ -213,28 +232,29 @@ img {
 }
 
 .nav-brand {
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .nav-brand span {
-  color: var(--apple-blue);
+  color: #ffffff;
+  opacity: 0.6;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 32px;
   list-style: none;
 }
 
 .nav-menu a {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 400;
   color: var(--text-secondary);
   letter-spacing: -0.01em;
@@ -247,13 +267,13 @@ img {
 }
 
 .nav-cta-pill {
-  padding: 6px 16px;
+  padding: 5px 14px;
   border-radius: var(--radius-pill);
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.08);
   color: var(--text-primary) !important;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--hairline);
   transition: all var(--duration-fast) var(--ease-apple);
 }
 
@@ -296,7 +316,398 @@ img {
   transform: translateY(-7px) rotate(-45deg);
 }
 
-/* ---------- 4. Apple Pill Buttons & Links ---------- */
+/* ---------- 3.1. Floating Sections Navigation (Apple Liquid Glass Dock) ---------- */
+.doc-tabs-panel {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%) translateX(70px) translateZ(0);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 990;
+  will-change: transform, opacity;
+  transition: transform 0.45s var(--ease-apple), opacity 0.35s ease;
+}
+
+.doc-tabs-panel.visible {
+  transform: translateY(-50%) translateX(0) translateZ(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Liquid Glass Shell (reactbits.dev/components/glass-surface Inspired) */
+.doc-tabs-glass {
+  position: relative;
+  min-width: 148px;
+  max-width: 165px;
+  padding: 12px 10px 14px 10px;
+  border-radius: 20px;
+  background: rgba(14, 15, 20, 0.72);
+  backdrop-filter: blur(28px) saturate(210%);
+  -webkit-backdrop-filter: blur(28px) saturate(210%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
+  box-shadow:
+    0 24px 50px -12px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    inset 0 1px 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 0 20px 0 rgba(255, 255, 255, 0.02);
+  transition: min-width 0.35s var(--ease-apple), max-width 0.35s var(--ease-apple), padding 0.35s var(--ease-apple), border-radius 0.35s var(--ease-apple);
+  overflow: visible;
+}
+
+/* Apple Liquid Sheen Highlights */
+.doc-tabs-glass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
+  pointer-events: none;
+}
+
+.doc-tabs-glass::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.08), transparent 75%);
+  pointer-events: none;
+}
+
+/* Sections Header */
+.doc-tabs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2px 10px 4px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 1;
+  transition: padding 0.3s ease, margin 0.3s ease;
+}
+
+.doc-tabs-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.doc-tabs-title i {
+  font-size: 0.74rem;
+  color: var(--text-tertiary);
+}
+
+.doc-tabs-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.doc-tabs-action {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.65rem;
+  transition: all 0.2s var(--ease-apple);
+}
+
+.doc-tabs-action:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Tree Navigation */
+.doc-tabs-tree {
+  position: relative;
+  padding-left: 8px;
+  z-index: 1;
+  transition: padding 0.3s ease;
+}
+
+.doc-tabs-tree-line {
+  position: absolute;
+  left: 17px;
+  top: 12px;
+  bottom: 12px;
+  width: 1.5px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 2px;
+  transition: opacity 0.25s ease;
+}
+
+.doc-tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.doc-tab-link {
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  border-radius: 980px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.22s var(--ease-apple);
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.doc-tab-icon {
+  font-size: 0.76rem;
+  width: 18px;
+  opacity: 0.75;
+  transition: all 0.22s var(--ease-apple);
+  margin-right: 6px;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+  text-align: center;
+}
+
+.doc-tab-text {
+  flex: 1;
+  white-space: nowrap;
+  letter-spacing: -0.01em;
+  transition: color 0.2s ease, opacity 0.25s ease;
+}
+
+.doc-tab-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.doc-tab-link:hover .doc-tab-icon {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.doc-tab-link:hover .doc-tab-text {
+  color: #ffffff;
+}
+
+/* Active Tab: Pure Apple White Monochrome Highlight (Themed) */
+.doc-tab-link.active {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45), inset 0 1px 1px 0 rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.doc-tab-link.active .doc-tab-icon {
+  opacity: 1;
+  color: #ffffff;
+}
+
+.doc-tab-link.active .doc-tab-text {
+  color: #ffffff;
+}
+
+/* ============================================================
+   COLLAPSED / HIDE-TO-RIGHT ICON DOCK MODE
+   When collapsed, width shrinks into an ultra-compact icon rail
+   ============================================================ */
+.doc-tabs-panel.collapsed .doc-tabs-glass {
+  min-width: 44px;
+  max-width: 44px;
+  padding: 10px 5px 12px 5px;
+  border-radius: 24px;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-header {
+  justify-content: center;
+  padding: 0 0 6px 0;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-title {
+  display: none;
+}
+
+.doc-tabs-panel.collapsed #doc-tabs-scroll-top {
+  display: none;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-controls {
+  justify-content: center;
+  width: 100%;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-tree {
+  padding-left: 0;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-tree-line {
+  display: none;
+}
+
+.doc-tabs-panel.collapsed .doc-tabs-list {
+  align-items: center;
+  gap: 5px;
+}
+
+.doc-tabs-panel.collapsed .doc-tab-link {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.doc-tabs-panel.collapsed .doc-tab-icon {
+  margin-right: 0;
+  font-size: 0.82rem;
+  width: auto;
+}
+
+.doc-tabs-panel.collapsed .doc-tab-text {
+  display: none;
+}
+
+.doc-tabs-panel.collapsed .doc-tab-link.active {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.22), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+}
+
+/* Floating Tooltip in Collapsed Mode */
+.doc-tabs-panel.collapsed .doc-tab-link::before {
+  content: attr(data-tooltip);
+  position: absolute;
+  right: calc(100% + 12px);
+  top: 50%;
+  transform: translateY(-50%) translateX(6px);
+  background: rgba(14, 15, 20, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 7px;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 1000;
+}
+
+.doc-tabs-panel.collapsed .doc-tab-link:hover::before {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ---------- 4. Central Dashed Guide Spine ---------- */
+.scroll-spine-wrap {
+  position: absolute;
+  top: 90vh;
+  bottom: 120px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.scroll-spine-line {
+  width: 1px;
+  height: 100%;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.22) 0px,
+    rgba(255, 255, 255, 0.22) 8px,
+    transparent 8px,
+    transparent 16px
+  );
+}
+
+/* Guide Anchor Node at Section Headers */
+.guide-node-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.guide-node {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0 0 14px rgba(255, 255, 255, 0.9), 0 0 4px #ffffff;
+  display: block;
+  position: relative;
+}
+
+.guide-node::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  animation: pulseNode 3s infinite var(--ease-apple);
+}
+
+@keyframes pulseNode {
+  0% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.6);
+    opacity: 0;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0;
+  }
+}
+
+/* Section Connector Line Segment */
+.section-connector-line {
+  width: 1px;
+  height: 40px;
+  margin: 0 auto 16px auto;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.25) 0px,
+    rgba(255, 255, 255, 0.25) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+}
+
+/* ---------- 5. Apple Pill Buttons & Links ---------- */
 .btn-pill-primary {
   display: inline-flex;
   align-items: center;
@@ -304,9 +715,9 @@ img {
   gap: 8px;
   background: #ffffff;
   color: #000000;
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 500;
-  padding: 12px 26px;
+  padding: 11px 24px;
   border-radius: var(--radius-pill);
   border: 1px solid #ffffff;
   cursor: pointer;
@@ -317,7 +728,7 @@ img {
   background: #e5e5ea;
   border-color: #e5e5ea;
   transform: scale(1.02);
-  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 24px rgba(255, 255, 255, 0.18);
 }
 
 .btn-pill-secondary {
@@ -327,9 +738,9 @@ img {
   gap: 8px;
   background: transparent;
   color: var(--text-primary);
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 400;
-  padding: 12px 26px;
+  padding: 11px 24px;
   border-radius: var(--radius-pill);
   border: 1px solid rgba(255, 255, 255, 0.28);
   cursor: pointer;
@@ -346,19 +757,20 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  color: var(--apple-blue);
-  font-size: 0.95rem;
+  color: #ffffff;
+  font-size: 0.92rem;
   font-weight: 400;
-  transition: gap var(--duration-fast) var(--ease-apple), color var(--duration-fast) var(--ease-apple);
+  opacity: 0.85;
+  transition: opacity var(--duration-fast) var(--ease-apple), gap var(--duration-fast) var(--ease-apple);
 }
 
 .link-apple i {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   transition: transform var(--duration-fast) var(--ease-apple);
 }
 
 .link-apple:hover {
-  color: #64b5f6;
+  opacity: 1;
   gap: 9px;
 }
 
@@ -373,14 +785,14 @@ img {
   gap: 8px;
   padding: 5px 14px;
   border-radius: var(--radius-pill);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  margin-bottom: 20px;
+  border: 1px solid var(--hairline);
+  margin-bottom: 24px;
 }
 
 .keynote-eyebrow .dot {
@@ -391,20 +803,20 @@ img {
   box-shadow: 0 0 8px var(--accent-emerald);
 }
 
-/* ---------- 5. Hero Section (Apple Keynote Reveal) ---------- */
+/* ---------- 6. Hero Section (Apple Stage Presentation) ---------- */
 .hero-keynote {
-  min-height: 100vh;
+  min-height: 96vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding-top: 100px;
+  padding-top: 110px;
   padding-bottom: 60px;
   position: relative;
   overflow: hidden;
 }
 
-/* Hero Center Top Ambient Spotlight */
+/* Hero Center Top Pure White Ambient Spotlight */
 .hero-keynote::before {
   content: "";
   position: absolute;
@@ -412,9 +824,9 @@ img {
   left: 50%;
   transform: translateX(-50%);
   width: clamp(550px, 85vw, 1050px);
-  height: 540px;
-  background: radial-gradient(ellipse 60% 55% at 50% 25%, rgba(41, 151, 255, 0.48) 0%, rgba(29, 114, 237, 0.24) 38%, rgba(13, 71, 161, 0.08) 65%, transparent 80%);
-  filter: blur(45px);
+  height: 520px;
+  background: radial-gradient(ellipse 60% 55% at 50% 25%, var(--glow-white-core) 0%, var(--glow-white-spread) 40%, rgba(255, 255, 255, 0.01) 65%, transparent 80%);
+  filter: blur(50px);
   pointer-events: none;
   z-index: 0;
 }
@@ -425,6 +837,8 @@ img {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* Hero Portrait — Apple Glass Lens / Stage Lighting */
@@ -432,7 +846,7 @@ img {
   position: relative;
   width: 140px;
   height: 140px;
-  margin-bottom: 28px;
+  margin-bottom: 30px;
 }
 
 .portrait-rim {
@@ -440,14 +854,14 @@ img {
   height: 100%;
   border-radius: 50%;
   padding: 3px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05), rgba(41, 151, 255, 0.3));
-  box-shadow: 0 0 35px rgba(41, 151, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.8);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4));
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.2), 0 20px 40px rgba(0, 0, 0, 0.8);
   transition: transform var(--duration-base) var(--ease-apple), box-shadow var(--duration-base) var(--ease-apple);
 }
 
 .portrait-rim:hover {
   transform: scale(1.04);
-  box-shadow: 0 0 50px rgba(41, 151, 255, 0.35), 0 25px 50px rgba(0, 0, 0, 0.9);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.35), 0 25px 50px rgba(0, 0, 0, 0.9);
 }
 
 .portrait-img {
@@ -455,12 +869,12 @@ img {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  background-color: var(--surface-card);
+  background-color: #111114;
 }
 
 /* Massive Apple Keynote Headline */
 .hero-title {
-  font-size: clamp(3.2rem, 7.5vw, 5.5rem);
+  font-size: clamp(3.2rem, 7.5vw, 5.6rem);
   font-weight: 700;
   letter-spacing: -0.035em;
   line-height: 1.05;
@@ -473,25 +887,23 @@ img {
   font-size: clamp(1.25rem, 2.8vw, 1.75rem);
   font-weight: 500;
   letter-spacing: -0.02em;
-  color: var(--apple-blue);
+  color: #ffffff;
+  opacity: 0.95;
   min-height: 2.2rem;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: 24px;
 }
 
 .hero-typing-cursor {
   display: inline-block;
   width: 2px;
-  height: 1.25em;
-  background: var(--apple-blue);
+  height: 1.15em;
+  background-color: #ffffff;
   margin-left: 4px;
-  animation: blink 1s infinite;
-  vertical-align: middle;
+  vertical-align: text-bottom;
+  animation: cursorBlink 0.9s infinite;
 }
 
-@keyframes blink {
+@keyframes cursorBlink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
@@ -531,7 +943,33 @@ img {
   color: var(--text-secondary);
 }
 
-/* ---------- 6. Section Headers (Apple Keynote Style) ---------- */
+/* Hero Bottom Scroll Guide Indicator */
+.hero-scroll-guide {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-guide-dash {
+  width: 1px;
+  height: 48px;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.3) 0px,
+    rgba(255, 255, 255, 0.3) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  animation: guidePulse 2.4s infinite ease-in-out;
+}
+
+@keyframes guidePulse {
+  0%, 100% { opacity: 0.35; transform: scaleY(0.9); }
+  50% { opacity: 0.9; transform: scaleY(1.1); }
+}
+
+/* ---------- 7. Seamless Section Headers ---------- */
 .section-keynote {
   padding: var(--section-spacing) 0;
   position: relative;
@@ -539,149 +977,85 @@ img {
 
 .section-header-keynote {
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 56px auto;
+  max-width: 760px;
+  margin: 0 auto 32px auto;
 }
 
 .section-header-keynote .section-kicker {
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--apple-blue);
-  margin-bottom: 10px;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
   display: block;
 }
 
-.section-header-keynote h2 {
-  font-size: clamp(2.2rem, 5vw, 3.5rem);
+.seamless-headline {
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
   color: var(--text-primary);
-  margin-bottom: 14px;
+  margin-bottom: 16px;
 }
 
-.section-header-keynote p {
-  font-size: clamp(1rem, 1.8vw, 1.18rem);
+.seamless-subheadline {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
   color: var(--text-secondary);
   line-height: 1.55;
 }
 
-/* ---------- 7. Apple Bento Grid Layout ---------- */
-.bento-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 20px;
+/* ---------- 8. Seamless Overview & Metric Specs (No Box) ---------- */
+.seamless-narrative {
+  max-width: 820px;
+  margin: 0 auto 36px auto;
+  text-align: center;
 }
 
-.bento-card {
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: 36px;
-  position: relative;
-  overflow: hidden;
-  transition: transform var(--duration-base) var(--ease-apple), border-color var(--duration-base) var(--ease-apple), background-color var(--duration-base) var(--ease-apple), box-shadow var(--duration-base) var(--ease-apple);
-}
-
-.bento-card:hover {
-  border-color: var(--border-hover);
-  background: var(--surface-card-hover);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
-}
-
-/* Bento Span Utilities */
-.col-12 { grid-column: span 12; }
-.col-8  { grid-column: span 8; }
-.col-7  { grid-column: span 7; }
-.col-6  { grid-column: span 6; }
-.col-5  { grid-column: span 5; }
-.col-4  { grid-column: span 4; }
-
-/* Bento Interior Styles */
-.bento-icon-badge {
-  width: 46px;
-  height: 46px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.25rem;
-  color: var(--text-primary);
-  margin-bottom: 20px;
-}
-
-.bento-icon-badge.blue   { color: var(--apple-blue); }
-.bento-icon-badge.gold   { color: var(--accent-gold); }
-.bento-icon-badge.purple { color: var(--google-purple); }
-.bento-icon-badge.green  { color: var(--accent-emerald); }
-
-.bento-card h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  color: var(--text-primary);
-  margin-bottom: 10px;
-}
-
-.bento-card p {
+.seamless-narrative p {
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
   color: var(--text-secondary);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  line-height: 1.75;
+  margin-bottom: 18px;
 }
 
-.bento-tag-cloud {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
-}
-
-.bento-tag {
-  padding: 5px 12px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-pill);
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  transition: all var(--duration-fast) var(--ease-apple);
-}
-
-.bento-card:hover .bento-tag {
+.seamless-narrative p strong {
   color: var(--text-primary);
-  border-color: rgba(255, 255, 255, 0.16);
+  font-weight: 500;
 }
 
-/* ---------- 8. Keynote Spec Callouts (About Section) ---------- */
-.keynote-specs-grid {
+/* Seamless Metric Row (Apple Tech Specs Row) */
+.seamless-specs-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 48px;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+  border-top: 1px solid var(--hairline);
+  border-bottom: 1px solid var(--hairline);
+  padding: 28px 0;
 }
 
-.spec-callout {
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: 32px 24px;
+.seamless-spec-item {
   text-align: center;
-  transition: all var(--duration-base) var(--ease-apple);
+  padding: 0 20px;
+  position: relative;
 }
 
-.spec-callout:hover {
-  border-color: var(--border-hover);
-  background: var(--surface-card-hover);
-  transform: translateY(-2px);
+.seamless-spec-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: var(--hairline-subtle);
 }
 
 .spec-number {
-  font-size: clamp(2.8rem, 5vw, 4rem);
-  font-weight: 800;
+  font-size: clamp(2.8rem, 4.5vw, 3.8rem);
+  font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
   color: var(--text-primary);
@@ -689,44 +1063,41 @@ img {
   font-variant-numeric: tabular-nums;
 }
 
-.spec-number.gradient-blue {
-  background: linear-gradient(135deg, #ffffff 40%, var(--apple-blue) 100%);
+.spec-number.gradient-silver {
+  background: linear-gradient(135deg, #ffffff 40%, rgba(255, 255, 255, 0.45) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .spec-label {
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--text-secondary);
   font-weight: 500;
   line-height: 1.35;
 }
 
-/* ---------- 9. Experience Timeline (Keynote Milestones) ---------- */
-.keynote-timeline {
+/* ---------- 9. Seamless Experience Timeline (Open Narrative, No Box) ---------- */
+.seamless-timeline {
+  max-width: 860px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  max-width: 920px;
-  margin: 0 auto;
+  gap: 0;
 }
 
-.experience-milestone {
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: 36px 40px;
-  transition: all var(--duration-base) var(--ease-apple);
+.seamless-milestone {
+  padding: 28px 0;
   position: relative;
 }
 
-.experience-milestone:hover {
-  border-color: var(--border-hover);
-  background: var(--surface-card-hover);
+.timeline-hairline-sep {
+  width: 100%;
+  height: 1px;
+  background: var(--hairline-subtle);
 }
 
-.milestone-top {
+.milestone-header-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -735,26 +1106,33 @@ img {
   margin-bottom: 14px;
 }
 
-.milestone-role-wrap {
-  flex: 1;
-  min-width: 260px;
-}
-
-.milestone-role {
-  font-size: 1.5rem;
+.milestone-date-chip {
+  display: inline-block;
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: -0.025em;
-  color: var(--text-primary);
-  margin-bottom: 4px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
 }
 
-.milestone-company {
-  font-size: 1.05rem;
-  color: var(--apple-blue);
+.milestone-role-title {
+  font-size: clamp(1.4rem, 2.8vw, 1.85rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.milestone-company-tag {
+  font-size: 1rem;
+  color: #ffffff;
+  opacity: 0.85;
   font-weight: 500;
 }
 
-.milestone-pills {
+.milestone-status-pills {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -762,13 +1140,13 @@ img {
 }
 
 .status-chip {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   padding: 4px 12px;
   border-radius: var(--radius-pill);
-  border: 1px solid var(--border-subtle);
+  border: 1px solid var(--hairline);
   background: rgba(255, 255, 255, 0.04);
   color: var(--text-secondary);
 }
@@ -785,244 +1163,243 @@ img {
   border-color: rgba(255, 214, 10, 0.3);
 }
 
-.milestone-meta {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 0.85rem;
-  color: var(--text-tertiary);
-  margin-bottom: 20px;
-}
-
-.milestone-summary {
-  font-size: 0.98rem;
+.milestone-body-text {
+  font-size: clamp(0.96rem, 1.5vw, 1.05rem);
   color: var(--text-secondary);
   line-height: 1.65;
-  margin-bottom: 20px;
+  margin-bottom: 22px;
 }
 
-.milestone-highlights {
+.milestone-open-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  border-top: 1px solid var(--border-subtle);
-  padding-top: 20px;
+  gap: 14px;
+  margin-top: 14px;
 }
 
-.milestone-highlights li {
+.milestone-open-list li {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  font-size: 0.92rem;
+  gap: 14px;
+  font-size: 0.94rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
-.milestone-highlights li i {
-  color: var(--apple-blue);
-  font-size: 0.8rem;
-  margin-top: 5px;
+.list-bullet {
+  color: #ffffff;
+  opacity: 0.5;
+  font-size: 0.75rem;
+  margin-top: 4px;
   flex-shrink: 0;
 }
 
-.milestone-highlights li strong {
+.milestone-open-list li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* ---------- 10. Seamless Capabilities (Open Columns, No Box) ---------- */
+.seamless-skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 36px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.skill-domain-column {
+  position: relative;
+  border-top: 1px solid var(--hairline);
+  padding-top: 24px;
+}
+
+.domain-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.domain-icon {
+  font-size: 1.15rem;
+  color: #ffffff;
+  opacity: 0.85;
+}
+
+.skill-domain-column h4 {
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--text-primary);
 }
 
-/* Expandable Milestone Toggle */
-.milestone-expand-btn {
-  background: none;
-  border: none;
-  color: var(--apple-blue);
+.skill-domain-column p {
+  color: var(--text-secondary);
   font-size: 0.88rem;
-  font-weight: 500;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  cursor: pointer;
-  margin-top: 14px;
-  padding: 4px 0;
-  transition: gap var(--duration-fast) var(--ease-apple);
+  line-height: 1.55;
+  margin-bottom: 18px;
 }
 
-.milestone-expand-btn:hover {
-  gap: 9px;
+.seamless-tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
-.milestone-expand-btn i {
-  transition: transform var(--duration-base) var(--ease-apple);
+.bento-tag {
+  padding: 5px 12px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-pill);
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  transition: all var(--duration-fast) var(--ease-apple);
 }
 
-.milestone-expand-btn.open i {
-  transform: rotate(180deg);
+.bento-tag:hover {
+  color: var(--text-primary);
+  border-color: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.milestone-expand-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s var(--ease-apple), opacity 0.3s var(--ease-apple);
-  opacity: 0;
-}
-
-.milestone-expand-content.open {
-  max-height: 600px;
-  opacity: 1;
-  margin-top: 16px;
-}
-
-/* ---------- 10. Achievements & Awards Grid ---------- */
-.achievements-grid {
+/* ---------- 11. Seamless Awards & Recognition (No Box) ---------- */
+.seamless-awards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 36px;
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
-.achievement-keynote-card {
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: 36px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all var(--duration-base) var(--ease-apple);
-  position: relative;
-}
-
-.achievement-keynote-card:hover {
-  border-color: var(--border-hover);
-  background: var(--surface-card-hover);
-  transform: translateY(-3px);
+.seamless-award-col {
+  border-top: 1px solid var(--hairline);
+  padding-top: 28px;
 }
 
 .award-badge-icon {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
+  font-size: 1.7rem;
+  margin-bottom: 16px;
   display: inline-block;
 }
 
-.achievement-keynote-card h4 {
+.seamless-award-col h4 {
   font-size: 1.25rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
-.achievement-keynote-card .award-org {
+.seamless-award-col .award-org {
   font-size: 0.85rem;
-  color: var(--apple-blue);
+  color: #ffffff;
+  opacity: 0.75;
   font-weight: 500;
   margin-bottom: 12px;
 }
 
-.achievement-keynote-card p {
+.seamless-award-col p {
   font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
-/* ---------- 11. Projects & Education ---------- */
-.project-card {
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: 32px;
+/* ---------- 12. Seamless Selected Projects (No Box) ---------- */
+.seamless-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 40px;
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.seamless-project-item {
+  border-top: 1px solid var(--hairline);
+  padding-top: 28px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: all var(--duration-base) var(--ease-apple);
-}
-
-.project-card:hover {
-  border-color: var(--border-hover);
-  background: var(--surface-card-hover);
-  transform: translateY(-3px);
 }
 
 .project-type-chip {
   font-size: 0.75rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   color: var(--text-secondary);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   font-weight: 600;
 }
 
-.project-card h4 {
-  font-size: 1.3rem;
+.seamless-project-item h4 {
+  font-size: 1.35rem;
   font-weight: 600;
   letter-spacing: -0.02em;
   color: var(--text-primary);
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
-.project-card p {
+.seamless-project-item p {
   font-size: 0.92rem;
   color: var(--text-secondary);
-  line-height: 1.55;
-  margin-bottom: 20px;
+  line-height: 1.65;
+  margin-bottom: 22px;
 }
 
-/* Education Cards */
-.education-grid {
+/* ---------- 13. Seamless Education & Continuous Learning (No Box) ---------- */
+.seamless-education-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 36px;
+  max-width: 1040px;
+  margin: 0 auto;
 }
 
-.edu-card {
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-card);
-  padding: 32px 28px;
-  transition: all var(--duration-base) var(--ease-apple);
-}
-
-.edu-card:hover {
-  border-color: var(--border-hover);
-  background: var(--surface-card-hover);
-  transform: translateY(-2px);
+.seamless-edu-col {
+  border-top: 1px solid var(--hairline);
+  padding-top: 28px;
 }
 
 .edu-level {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--apple-blue);
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
   margin-bottom: 8px;
 }
 
-.edu-card h4 {
-  font-size: 1.2rem;
+.seamless-edu-col h4 {
+  font-size: 1.22rem;
   font-weight: 600;
   color: var(--text-primary);
-  margin-bottom: 4px;
+  margin-bottom: 6px;
 }
 
 .edu-school {
-  font-size: 0.92rem;
-  color: var(--text-secondary);
+  font-size: 0.95rem;
+  color: #ffffff;
+  opacity: 0.85;
+  font-weight: 500;
   margin-bottom: 6px;
 }
 
 .edu-years {
   font-size: 0.82rem;
   color: var(--text-tertiary);
+  margin-bottom: 8px;
 }
 
 .edu-desc {
-  font-size: 0.85rem;
+  font-size: 0.86rem;
   color: var(--text-secondary);
-  margin-top: 10px;
-  line-height: 1.5;
+  line-height: 1.55;
 }
 
-/* ---------- 12. Apple Closing CTA Section ---------- */
+/* ---------- 14. Apple Closing CTA Section ---------- */
 .closing-cta {
-  padding: clamp(100px, 14vw, 160px) 0 80px 0;
+  padding: clamp(48px, 6vw, 76px) 0 40px 0;
   text-align: center;
   position: relative;
 }
@@ -1054,40 +1431,40 @@ img {
   justify-content: center;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .contact-pill-list {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
 .contact-pill-item {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 12px 24px;
+  gap: 8px;
+  padding: 8px 18px;
   border-radius: var(--radius-pill);
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hairline);
   transition: all var(--duration-fast) var(--ease-apple);
 }
 
 .contact-pill-item:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  background: var(--surface-card-hover);
-  transform: translateY(-2px);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
-/* ---------- 13. Minimalist Footer ---------- */
+/* ---------- 15. Minimalist Footer ---------- */
 .footer-keynote {
-  border-top: 1px solid var(--border-subtle);
-  padding: 40px 0;
+  border-top: 1px solid var(--hairline-subtle);
+  padding: 36px 0;
   font-size: 0.82rem;
   color: var(--text-tertiary);
 }
@@ -1097,7 +1474,7 @@ img {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 16px;
+  gap: 20px;
 }
 
 .footer-social-links {
@@ -1115,10 +1492,10 @@ img {
   color: var(--text-primary);
 }
 
-/* ---------- 14. Scroll Reveal Keynote Animations ---------- */
+/* ---------- 16. Scroll Reveal Keynote Animations ---------- */
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 26px, 0);
+  transform: translate3d(0, 24px, 0);
   transition: opacity 0.65s var(--ease-apple), transform 0.65s var(--ease-apple);
   will-change: opacity, transform;
 }
@@ -1129,26 +1506,31 @@ img {
   will-change: auto;
 }
 
-.reveal-delay-1 { transition-delay: 0.1s; }
-.reveal-delay-2 { transition-delay: 0.2s; }
-.reveal-delay-3 { transition-delay: 0.3s; }
-.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+.reveal-delay-4 { transition-delay: 0.32s; }
 
-/* ---------- 15. Responsive Adaptations ---------- */
+/* ---------- 17. Responsive Adaptations ---------- */
 @media (max-width: 992px) {
-  .col-8, .col-7, .col-6, .col-5, .col-4 {
-    grid-column: span 12;
+  .seamless-specs-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px 0;
   }
 
-  .keynote-specs-grid {
+  .seamless-spec-item:nth-child(2)::after {
+    display: none;
+  }
+
+  .seamless-skills-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .achievements-grid {
+  .seamless-awards-grid {
     grid-template-columns: 1fr;
   }
 
-  .education-grid {
+  .seamless-education-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -1156,10 +1538,10 @@ img {
 @media (max-width: 768px) {
   .nav-menu {
     position: fixed;
-    top: 60px;
+    top: 56px;
     left: 0;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 56px);
     background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(25px);
     -webkit-backdrop-filter: blur(25px);
@@ -1188,15 +1570,24 @@ img {
     display: flex;
   }
 
-  .experience-milestone {
-    padding: 28px 24px;
+  .scroll-spine-wrap {
+    display: none; /* Hide center spine on narrow mobile screens to preserve text clarity */
   }
 
-  .bento-card {
-    padding: 28px 24px;
+  .seamless-specs-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
 
-  .keynote-specs-grid {
+  .seamless-spec-item::after {
+    display: none !important;
+  }
+
+  .seamless-skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .seamless-projects-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1205,3 +1596,17 @@ img {
     gap: 8px;
   }
 }
+
+@media (max-width: 1080px) {
+  /* On tablets and mobile screens, keep top navbar sticky and hide right floating tabs */
+  .doc-tabs-panel {
+    display: none !important;
+  }
+
+  .navbar.nav-hidden {
+    transform: translateY(0) !important;
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+}
+

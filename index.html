@@ -35,7 +35,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Apple & Google I/O Minimalist Stylesheet -->
+  <!-- Apple Seamless Stylesheet -->
   <link href="styles.css" rel="stylesheet">
 
   <!-- Favicon -->
@@ -43,6 +43,15 @@
 </head>
 
 <body>
+
+  <!-- ============ INTERACTIVE CURSOR GRID / DOT FIELD CANVAS ============ -->
+  <canvas id="cursor-grid-canvas" class="cursor-grid-canvas" aria-hidden="true"></canvas>
+
+  <!-- ============ CENTRAL DASHED GUIDE SPINE ============ -->
+  <div class="scroll-spine-wrap" aria-hidden="true">
+    <div class="scroll-spine-line"></div>
+  </div>
+
 
   <!-- ============ APPLE FROSTED NAVBAR ============ -->
   <header class="navbar" id="navbar">
@@ -70,6 +79,61 @@
       </button>
     </div>
   </header>
+
+
+  <!-- ============ FLOATING SECTIONS NAVIGATION (LIQUID GLASS CONTAINER) ============ -->
+  <aside class="doc-tabs-panel" id="doc-tabs" aria-label="Document Sections Navigation">
+    <div class="doc-tabs-glass">
+      <div class="doc-tabs-header">
+        <div class="doc-tabs-title">
+          <i class="fa-solid fa-layer-group"></i>
+          <span>Sections</span>
+        </div>
+        <div class="doc-tabs-controls">
+          <button class="doc-tabs-action" id="doc-tabs-scroll-top" title="Scroll to top" aria-label="Scroll to top">
+            <i class="fa-solid fa-arrow-up"></i>
+          </button>
+          <button class="doc-tabs-action doc-tabs-toggle-btn" id="doc-tabs-toggle" title="Hide / Collapse" aria-label="Collapse to icons">
+            <i class="fa-solid fa-chevron-right" id="doc-tabs-toggle-icon"></i>
+          </button>
+        </div>
+      </div>
+
+      <nav class="doc-tabs-tree">
+        <div class="doc-tabs-tree-line"></div>
+        <div class="doc-tabs-list">
+          <a href="#about" class="doc-tab-link" data-section="about" data-tooltip="Overview" title="Overview">
+            <i class="fa-solid fa-compass doc-tab-icon"></i>
+            <span class="doc-tab-text">Overview</span>
+          </a>
+          <a href="#experience" class="doc-tab-link" data-section="experience" data-tooltip="Experience" title="Experience">
+            <i class="fa-solid fa-briefcase doc-tab-icon"></i>
+            <span class="doc-tab-text">Experience</span>
+          </a>
+          <a href="#skills" class="doc-tab-link" data-section="skills" data-tooltip="Capabilities" title="Capabilities">
+            <i class="fa-solid fa-screwdriver-wrench doc-tab-icon"></i>
+            <span class="doc-tab-text">Capabilities</span>
+          </a>
+          <a href="#achievements" class="doc-tab-link" data-section="achievements" data-tooltip="Awards" title="Awards">
+            <i class="fa-solid fa-trophy doc-tab-icon"></i>
+            <span class="doc-tab-text">Awards</span>
+          </a>
+          <a href="#projects" class="doc-tab-link" data-section="projects" data-tooltip="Projects" title="Projects">
+            <i class="fa-solid fa-laptop-code doc-tab-icon"></i>
+            <span class="doc-tab-text">Projects</span>
+          </a>
+          <a href="#education" class="doc-tab-link" data-section="education" data-tooltip="Education" title="Education">
+            <i class="fa-solid fa-graduation-cap doc-tab-icon"></i>
+            <span class="doc-tab-text">Education</span>
+          </a>
+          <a href="#contact" class="doc-tab-link" data-section="contact" data-tooltip="Contact" title="Contact">
+            <i class="fa-solid fa-paper-plane doc-tab-icon"></i>
+            <span class="doc-tab-text">Contact</span>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </aside>
 
 
   <!-- ============ HERO: APPLE KEYNOTE REVEAL ============ -->
@@ -129,248 +193,229 @@
           </div>
         </div>
 
+        <!-- Hero Bottom Scroll Guide Dash -->
+        <div class="hero-scroll-guide reveal reveal-delay-4" aria-hidden="true">
+          <div class="hero-guide-dash"></div>
+        </div>
+
       </div>
     </div>
   </section>
 
 
-  <!-- ============ ABOUT & KEYNOTE METRIC SPECS ============ -->
+  <!-- ============ ABOUT & METRIC SPECS (SEAMLESS, NO BOX) ============ -->
   <section class="section-keynote" id="about">
     <div class="container">
+      <div class="guide-node-wrap reveal" aria-hidden="true">
+        <span class="guide-node"></span>
+      </div>
+
       <div class="section-header-keynote reveal">
         <span class="section-kicker">Overview</span>
-        <h2>Engineered for enterprise scale.</h2>
-        <p>
-          A dedicated and versatile IT Systems Engineer with deep specialization in IT Service Management (ITSM), global
-          enterprise support, and physical infrastructure engineering.
+        <h2 class="seamless-headline">Engineered for enterprise scale.</h2>
+        <p class="seamless-subheadline">
+          Bridging physical infrastructure, global cloud environments, and automated service operations.
         </p>
       </div>
 
-      <!-- Bento Narrative Box -->
-      <div class="bento-grid">
-        <div class="bento-card col-12 reveal">
-          <div class="bento-icon-badge blue">
-            <i class="fas fa-terminal"></i>
-          </div>
-          <h3>Operational Philosophy</h3>
-          <p>
-            My career spans across managing rigorous L1/L2/L3 service desk operations, supporting thousands of global
-            enterprise users across Microsoft 365 and Azure cloud environments, and acting as the specialized "remote
-            hands" for data centers and branch offices. With an engineering background in software development, I bridge
-            the gap between low-level infrastructure, IT service delivery, and automated workflows to eliminate systemic
-            bottlenecks.
-          </p>
-        </div>
+      <!-- Narrative Text (Open Typography, No Box) -->
+      <div class="seamless-narrative reveal reveal-delay-1">
+        <p>
+          My career spans across managing rigorous <strong>L1/L2/L3 service desk operations</strong>, supporting thousands
+          of global enterprise users across Microsoft 365 and Azure cloud environments, and acting as the specialized
+          <strong>"remote hands"</strong> for data centers and branch offices.
+        </p>
+        <p>
+          With an engineering background in software development, I bridge the gap between low-level infrastructure, IT
+          service delivery, and automated workflows to eliminate systemic bottlenecks.
+        </p>
       </div>
 
-      <!-- 4 Apple Keynote Metric Callouts -->
-      <div class="keynote-specs-grid">
-        <div class="spec-callout reveal">
-          <div class="spec-number gradient-blue" data-target="3" data-suffix="+">0</div>
+      <!-- 4 Apple Keynote Metric Specs (Clean Horizontal Row, No Boxes) -->
+      <div class="seamless-specs-row reveal reveal-delay-2">
+        <div class="seamless-spec-item">
+          <div class="spec-number gradient-silver" data-target="3" data-suffix="+">0</div>
           <div class="spec-label">Years of Enterprise IT Experience</div>
         </div>
 
-        <div class="spec-callout reveal reveal-delay-1">
+        <div class="seamless-spec-item">
           <div class="spec-number" data-target="2" data-suffix="x">0</div>
           <div class="spec-label">IT Operation Improvement Winner</div>
         </div>
 
-        <div class="spec-callout reveal reveal-delay-2">
-          <div class="spec-number gradient-blue" data-target="1" data-prefix="#">0</div>
+        <div class="seamless-spec-item">
+          <div class="spec-number gradient-silver" data-target="1" data-prefix="#">0</div>
           <div class="spec-label">Top Service Desk Performer (UNIT4)</div>
         </div>
 
-        <div class="spec-callout reveal reveal-delay-3">
+        <div class="seamless-spec-item">
           <div class="spec-number" data-target="95" data-suffix="%+">0</div>
           <div class="spec-label">SLA Resolution Rate Maintained</div>
         </div>
       </div>
+
     </div>
   </section>
 
 
-  <!-- ============ EXPERIENCE: KEYNOTE MILESTONES ============ -->
+  <!-- ============ EXPERIENCE: SEAMLESS KEYNOTE JOURNEY (NO BOX) ============ -->
   <section class="section-keynote" id="experience">
     <div class="container">
+      <div class="guide-node-wrap reveal" aria-hidden="true">
+        <span class="guide-node"></span>
+      </div>
+
       <div class="section-header-keynote reveal">
         <span class="section-kicker">Career Milestones</span>
-        <h2>Proven impact across enterprise teams.</h2>
-        <p>
+        <h2 class="seamless-headline">Proven impact across enterprise teams.</h2>
+        <p class="seamless-subheadline">
           Hands-on technical leadership, mission-critical incident resolution, and continuous workflow optimization.
         </p>
       </div>
 
-      <div class="keynote-timeline">
+      <div class="seamless-timeline">
 
-        <!-- Milestone 1: Unit4 -->
-        <article class="experience-milestone reveal">
-          <div class="milestone-top">
-            <div class="milestone-role-wrap">
-              <h3 class="milestone-role">IT Helpdesk Tier 1 / Service Desk Engineer</h3>
-              <div class="milestone-company">UNIT4</div>
+        <!-- Milestone 1: UNIT4 -->
+        <article class="seamless-milestone reveal">
+          <div class="milestone-header-row">
+            <div>
+              <span class="milestone-date-chip">February 2024 – Present</span>
+              <h3 class="milestone-role-title">IT Helpdesk Tier 1 / Service Desk Engineer</h3>
+              <div class="milestone-company-tag">UNIT4 • Remote / Global Support</div>
             </div>
-            <div class="milestone-pills">
+            <div class="milestone-status-pills">
               <span class="status-chip active">Current Role</span>
               <span class="status-chip">Full-time</span>
             </div>
           </div>
 
-          <div class="milestone-meta">
-            <span><i class="far fa-calendar-alt"></i> February 2024 – Present</span>
-            <span><i class="fas fa-globe-asia"></i> Remote / Global Support</span>
-          </div>
-
-          <p class="milestone-summary">
+          <p class="milestone-body-text">
             Delivering high-tier technical support across global enterprise tenants, administering Microsoft 365, Azure
             Entra ID, and resolving complex hardware, software, and networking incidents under strict ITIL-aligned SLAs.
           </p>
 
-          <button class="milestone-expand-btn" aria-label="Toggle achievements">
-            View key achievements <i class="fas fa-chevron-down"></i>
-          </button>
-
-          <div class="milestone-expand-content">
-            <ul class="milestone-highlights">
-              <li>
-                <i class="fas fa-trophy"></i>
-                <div>
-                  <strong>2x IT Operation Improvement Winner:</strong> Recognized twice with company-wide awards for
-                  identifying support workflow bottlenecks, creating comprehensive documentation, and implementing
-                  automation that streamlined ticket resolution times.
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-award"></i>
-                <div>
-                  <strong>#1 Service Desk Top Performer:</strong> Ranked as the top-performing engineer for consistently
-                  exceeding monthly SLA targets, maintaining customer satisfaction (CSAT) above 95%, and handling the
-                  highest volume of critical escalation tickets.
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-shield-alt"></i>
-                <div>
-                  <strong>Enterprise Identity & Security Management:</strong> Administered Microsoft 365, Azure Active
-                  Directory / Entra ID, Multi-Factor Authentication (MFA), and role-based access control (RBAC) across
-                  multinational business units.
-                </div>
-              </li>
-            </ul>
-          </div>
+          <ul class="milestone-open-list">
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>2x IT Operation Improvement Winner:</strong> Recognized twice with company-wide awards for
+                identifying support workflow bottlenecks, creating comprehensive documentation, and implementing
+                automation that streamlined ticket resolution times.
+              </div>
+            </li>
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>#1 Service Desk Top Performer:</strong> Ranked as the top-performing engineer for consistently
+                exceeding monthly SLA targets, maintaining customer satisfaction (CSAT) above 95%, and handling the
+                highest volume of critical escalation tickets.
+              </div>
+            </li>
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>Enterprise Identity & Security Management:</strong> Administered Microsoft 365, Azure Active
+                Directory / Entra ID, Multi-Factor Authentication (MFA), and role-based access control (RBAC) across
+                multinational business units.
+              </div>
+            </li>
+          </ul>
         </article>
 
+        <div class="timeline-hairline-sep"></div>
 
-        <!-- Milestone 2: Nexanet Supervisor (Contract/Freelance) -->
-        <article class="experience-milestone reveal reveal-delay-1">
-          <div class="milestone-top">
-            <div class="milestone-role-wrap">
-              <h3 class="milestone-role">IT Support Supervisor & Operations Lead</h3>
-              <div class="milestone-company">PT. Nexanet Nusantara Berjaya</div>
+        <!-- Milestone 2: Nexanet Supervisor -->
+        <article class="seamless-milestone reveal reveal-delay-1">
+          <div class="milestone-header-row">
+            <div>
+              <span class="milestone-date-chip">September 2024 – April 2025</span>
+              <h3 class="milestone-role-title">IT Support Supervisor & Operations Lead</h3>
+              <div class="milestone-company-tag">PT. Nexanet Nusantara Berjaya • Project-Based Operations</div>
             </div>
-            <div class="milestone-pills">
+            <div class="milestone-status-pills">
               <span class="status-chip contract">Contract / Freelance</span>
               <span class="status-chip">Concurrent Projects</span>
             </div>
           </div>
 
-          <div class="milestone-meta">
-            <span><i class="far fa-calendar-alt"></i> September 2024 – April 2025</span>
-            <span><i class="fas fa-briefcase"></i> Project-Based Operations</span>
-          </div>
-
-          <p class="milestone-summary">
+          <p class="milestone-body-text">
             Spearheaded technical supervision and infrastructure deployment across dual high-profile projects: the
             <strong>Blibli Managed Service Project</strong> (e-commerce logistics & fulfillment center support) and the
             <strong>ICITAP Support Program</strong> (International Criminal Investigative Training Assistance Program).
           </p>
 
-          <button class="milestone-expand-btn" aria-label="Toggle achievements">
-            View key achievements <i class="fas fa-chevron-down"></i>
-          </button>
-
-          <div class="milestone-expand-content">
-            <ul class="milestone-highlights">
-              <li>
-                <i class="fas fa-users-cog"></i>
-                <div>
-                  <strong>Cross-Project Technical Supervision:</strong> Led field IT support operations across dual
-                  high-profile engagements, guaranteeing uninterrupted hardware, network, and endpoint reliability for
-                  mission-critical facilities.
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-warehouse"></i>
-                <div>
-                  <strong>Blibli Logistics Support:</strong> Maintained handheld scanners, barcode printing
-                  infrastructure, warehouse networking switches, and enterprise workstations with 99.5% operational
-                  uptime.
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-handshake-angle"></i>
-                <div>
-                  <strong>ICITAP Infrastructure Setup:</strong> Deployed secure workstations, video conferencing
-                  systems, and encrypted local area networks for international law enforcement training programs.
-                </div>
-              </li>
-            </ul>
-          </div>
+          <ul class="milestone-open-list">
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>Cross-Project Technical Supervision:</strong> Led field IT support operations across dual
+                high-profile engagements, guaranteeing uninterrupted hardware, network, and endpoint reliability for
+                mission-critical facilities.
+              </div>
+            </li>
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>Blibli Logistics Support:</strong> Maintained handheld scanners, barcode printing
+                infrastructure, warehouse networking switches, and enterprise workstations with 99.5% operational
+                uptime.
+              </div>
+            </li>
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>ICITAP Infrastructure Setup:</strong> Deployed secure workstations, video conferencing
+                systems, and encrypted local area networks for international law enforcement training programs.
+              </div>
+            </li>
+          </ul>
         </article>
 
+        <div class="timeline-hairline-sep"></div>
 
         <!-- Milestone 3: Nexanet Full-time -->
-        <article class="experience-milestone reveal reveal-delay-2">
-          <div class="milestone-top">
-            <div class="milestone-role-wrap">
-              <h3 class="milestone-role">IT Support Specialist & Infrastructure Hands</h3>
-              <div class="milestone-company">PT. Nexanet Nusantara Berjaya</div>
+        <article class="seamless-milestone reveal reveal-delay-2">
+          <div class="milestone-header-row">
+            <div>
+              <span class="milestone-date-chip">January 2023 – January 2024</span>
+              <h3 class="milestone-role-title">IT Support Specialist & Infrastructure Hands</h3>
+              <div class="milestone-company-tag">PT. Nexanet Nusantara Berjaya • Jakarta, Indonesia</div>
             </div>
-            <div class="milestone-pills">
+            <div class="milestone-status-pills">
               <span class="status-chip">Full-time</span>
               <span class="status-chip">Infrastructure</span>
             </div>
           </div>
 
-          <div class="milestone-meta">
-            <span><i class="far fa-calendar-alt"></i> January 2023 – January 2024</span>
-            <span><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</span>
-          </div>
-
-          <p class="milestone-summary">
+          <p class="milestone-body-text">
             Provided end-to-end IT support for 100+ on-site and remote employees while serving as primary physical
             "remote hands" for rack servers, network switches, structured cabling, and data center maintenance.
           </p>
 
-          <button class="milestone-expand-btn" aria-label="Toggle achievements">
-            View key achievements <i class="fas fa-chevron-down"></i>
-          </button>
-
-          <div class="milestone-expand-content">
-            <ul class="milestone-highlights">
-              <li>
-                <i class="fas fa-network-wired"></i>
-                <div>
-                  <strong>Infrastructure Overhaul & Cabling Standardization:</strong> Engineered and re-terminated patch
-                  panels, structured cat6 cabling, and server rack cable management, reducing physical network fault
-                  diagnosis time by 40%.
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-server"></i>
-                <div>
-                  <strong>Data Center & Remote Hands Operations:</strong> Performed on-site hardware replacements, disk
-                  array swaps, router/firewall configurations, and emergency power failover checks.
-                </div>
-              </li>
-              <li>
-                <i class="fas fa-desktop"></i>
-                <div>
-                  <strong>Fleet Lifecycle Management:</strong> Managed procurement, hardware diagnostic testing, OS
-                  deployment, automated provisioning, and asset inventory tracking for 100+ corporate devices.
-                </div>
-              </li>
-            </ul>
-          </div>
+          <ul class="milestone-open-list">
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>Infrastructure Overhaul & Cabling Standardization:</strong> Engineered and re-terminated patch
+                panels, structured cat6 cabling, and server rack cable management, reducing physical network fault
+                diagnosis time by 40%.
+              </div>
+            </li>
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>Data Center & Remote Hands Operations:</strong> Performed on-site hardware replacements, disk
+                array swaps, router/firewall configurations, and emergency power failover checks.
+              </div>
+            </li>
+            <li>
+              <span class="list-bullet">✦</span>
+              <div>
+                <strong>Fleet Lifecycle Management:</strong> Managed procurement, hardware diagnostic testing, OS
+                deployment, automated provisioning, and asset inventory tracking for 100+ corporate devices.
+              </div>
+            </li>
+          </ul>
         </article>
 
       </div>
@@ -378,132 +423,133 @@
   </section>
 
 
-  <!-- ============ CAPABILITIES: APPLE BENTO GRID ============ -->
+  <!-- ============ CAPABILITIES: SEAMLESS PILLARS (NO BOX) ============ -->
   <section class="section-keynote" id="skills">
     <div class="container">
+      <div class="guide-node-wrap reveal" aria-hidden="true">
+        <span class="guide-node"></span>
+      </div>
+
       <div class="section-header-keynote reveal">
         <span class="section-kicker">Capabilities</span>
-        <h2>The complete technical stack.</h2>
-        <p>
+        <h2 class="seamless-headline">The complete technical stack.</h2>
+        <p class="seamless-subheadline">
           Organized across cloud systems, enterprise service management, network engineering, and automation.
         </p>
       </div>
 
-      <div class="bento-grid">
+      <div class="seamless-skills-grid">
 
-        <!-- Bento 1: Cloud & Enterprise Systems (Span 7) -->
-        <div class="bento-card col-7 reveal">
-          <div class="bento-icon-badge blue">
-            <i class="fas fa-cloud"></i>
+        <!-- Domain 1: Cloud & Enterprise -->
+        <div class="skill-domain-column reveal">
+          <div class="domain-header">
+            <i class="fas fa-cloud domain-icon"></i>
+            <h4>Cloud & Identity</h4>
           </div>
-          <h3>Cloud & Enterprise Identity</h3>
           <p>
-            Architecting and administering modern workplace environments with Microsoft 365, Azure Entra ID, and
-            endpoint configuration.
+            Architecting and administering modern workplace environments with Microsoft 365, Azure Entra ID, and endpoint configuration.
           </p>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">Microsoft 365</span>
-            <span class="bento-tag">Azure Active Directory (Entra ID)</span>
-            <span class="bento-tag">Microsoft Intune (MDM)</span>
+            <span class="bento-tag">Azure Entra ID</span>
+            <span class="bento-tag">Microsoft Intune</span>
             <span class="bento-tag">Exchange Online</span>
-            <span class="bento-tag">AWS Cloud Architecture</span>
-            <span class="bento-tag">Multi-Factor Authentication (MFA)</span>
-            <span class="bento-tag">Single Sign-On (SSO)</span>
-            <span class="bento-tag">SharePoint & OneDrive</span>
+            <span class="bento-tag">AWS Cloud</span>
+            <span class="bento-tag">MFA & SSO</span>
+            <span class="bento-tag">SharePoint</span>
           </div>
         </div>
 
-        <!-- Bento 2: ITSM & Frameworks (Span 5) -->
-        <div class="bento-card col-5 reveal reveal-delay-1">
-          <div class="bento-icon-badge gold">
-            <i class="fas fa-ticket-alt"></i>
+        <!-- Domain 2: ITSM & Service Delivery -->
+        <div class="skill-domain-column reveal reveal-delay-1">
+          <div class="domain-header">
+            <i class="fas fa-ticket-alt domain-icon"></i>
+            <h4>ITSM & Service Delivery</h4>
           </div>
-          <h3>ITSM & Service Delivery</h3>
           <p>
             Strict adherence to ITIL practices, incident lifecycle tracking, and SLA governance.
           </p>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">ITIL v4 Framework</span>
             <span class="bento-tag">ServiceNow</span>
             <span class="bento-tag">Jira Service Management</span>
             <span class="bento-tag">Freshservice</span>
-            <span class="bento-tag">Incident & Change Management</span>
-            <span class="bento-tag">SLA & KPI Tracking</span>
+            <span class="bento-tag">Incident & Change</span>
+            <span class="bento-tag">SLA & KPI</span>
           </div>
         </div>
 
-        <!-- Bento 3: Network & Data Center (Span 5) -->
-        <div class="bento-card col-5 reveal">
-          <div class="bento-icon-badge green">
-            <i class="fas fa-network-wired"></i>
+        <!-- Domain 3: Networking & Physical Hands -->
+        <div class="skill-domain-column reveal reveal-delay-2">
+          <div class="domain-header">
+            <i class="fas fa-network-wired domain-icon"></i>
+            <h4>Networking & Data Center</h4>
           </div>
-          <h3>Networking & Physical Hands</h3>
           <p>
             Physical rack management, router/switch diagnostics, and structured cabling.
           </p>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">TCP/IP & DNS/DHCP</span>
             <span class="bento-tag">Cisco & Mikrotik</span>
             <span class="bento-tag">VLAN & Routing</span>
-            <span class="bento-tag">Fortinet / Firewalls</span>
-            <span class="bento-tag">Structured Cabling (Cat6)</span>
+            <span class="bento-tag">Firewalls</span>
+            <span class="bento-tag">Cat6 Structured Cabling</span>
             <span class="bento-tag">Rackmount Servers</span>
           </div>
         </div>
 
-        <!-- Bento 4: Operating Systems & Endpoints (Span 7) -->
-        <div class="bento-card col-7 reveal reveal-delay-1">
-          <div class="bento-icon-badge purple">
-            <i class="fas fa-laptop-code"></i>
+        <!-- Domain 4: Operating Systems & Automation -->
+        <div class="skill-domain-column reveal">
+          <div class="domain-header">
+            <i class="fas fa-laptop-code domain-icon"></i>
+            <h4>Operating Systems & Scripts</h4>
           </div>
-          <h3>Operating Systems & Automation</h3>
           <p>
             Fleet provisioning, automated imaging, script execution, and endpoint security.
           </p>
-          <div class="bento-tag-cloud">
-            <span class="bento-tag">Windows Server 2016 - 2022</span>
-            <span class="bento-tag">Windows 10 / 11 Enterprise</span>
-            <span class="bento-tag">macOS Enterprise Fleet</span>
-            <span class="bento-tag">Ubuntu / Debian Linux</span>
-            <span class="bento-tag">PowerShell Automation</span>
+          <div class="seamless-tag-cloud">
+            <span class="bento-tag">Windows Server</span>
+            <span class="bento-tag">Windows 10 / 11 Ent</span>
+            <span class="bento-tag">macOS Fleet</span>
+            <span class="bento-tag">Ubuntu Linux</span>
+            <span class="bento-tag">PowerShell</span>
             <span class="bento-tag">Bash Scripting</span>
-            <span class="bento-tag">OS Deployment & Imaging</span>
           </div>
         </div>
 
-        <!-- Bento 5: Hardware & Diagnostics (Span 6) -->
-        <div class="bento-card col-6 reveal">
-          <div class="bento-icon-badge blue">
-            <i class="fas fa-microchip"></i>
+        <!-- Domain 5: Hardware & Diagnostics -->
+        <div class="skill-domain-column reveal reveal-delay-1">
+          <div class="domain-header">
+            <i class="fas fa-microchip domain-icon"></i>
+            <h4>Hardware Engineering</h4>
           </div>
-          <h3>Hardware & Infrastructure Engineering</h3>
           <p>
             Component-level diagnostics, disk RAID configurations, and disaster recovery preparations.
           </p>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">Server Maintenance</span>
-            <span class="bento-tag">RAID Configurations</span>
-            <span class="bento-tag">UPS Backup Systems</span>
+            <span class="bento-tag">RAID Configs</span>
+            <span class="bento-tag">UPS Backup</span>
             <span class="bento-tag">Hardware Benchmarking</span>
-            <span class="bento-tag">Asset Lifecycle Inventory</span>
+            <span class="bento-tag">Asset Inventory</span>
           </div>
         </div>
 
-        <!-- Bento 6: Software & Tools (Span 6) -->
-        <div class="bento-card col-6 reveal reveal-delay-1">
-          <div class="bento-icon-badge green">
-            <i class="fas fa-code"></i>
+        <!-- Domain 6: Software & Tools -->
+        <div class="skill-domain-column reveal reveal-delay-2">
+          <div class="domain-header">
+            <i class="fas fa-code domain-icon"></i>
+            <h4>Software Engineering & Tools</h4>
           </div>
-          <h3>Software Engineering & Tools</h3>
           <p>
             Bridging infrastructure maintenance and modern application lifecycle development.
           </p>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">Git / GitHub</span>
             <span class="bento-tag">Java & Android SDK</span>
-            <span class="bento-tag">HTML5 & Vanilla CSS</span>
+            <span class="bento-tag">HTML5 & CSS3</span>
             <span class="bento-tag">JavaScript ES6+</span>
-            <span class="bento-tag">SQL Database Queries</span>
+            <span class="bento-tag">SQL Databases</span>
             <span class="bento-tag">REST APIs</span>
           </div>
         </div>
@@ -513,53 +559,51 @@
   </section>
 
 
-  <!-- ============ RECOGNITION & AWARDS ============ -->
+  <!-- ============ RECOGNITION & AWARDS (SEAMLESS, NO BOX) ============ -->
   <section class="section-keynote" id="achievements">
     <div class="container">
+      <div class="guide-node-wrap reveal" aria-hidden="true">
+        <span class="guide-node"></span>
+      </div>
+
       <div class="section-header-keynote reveal">
         <span class="section-kicker">Recognition</span>
-        <h2>Recognized for operational excellence.</h2>
-        <p>
+        <h2 class="seamless-headline">Recognized for operational excellence.</h2>
+        <p class="seamless-subheadline">
           Awarded for continuous improvement initiatives and top-tier support benchmarks.
         </p>
       </div>
 
-      <div class="achievements-grid">
+      <div class="seamless-awards-grid">
 
-        <div class="achievement-keynote-card reveal">
-          <div>
-            <div class="award-badge-icon">🏆</div>
-            <h4>2x IT Operation Improvement Winner</h4>
-            <div class="award-org">UNIT4</div>
-            <p>
-              Awarded twice consecutively for identifying systemic support friction, establishing standard operating
-              procedures (SOPs), and deploying automation that measurably reduced mean time to resolution (MTTR).
-            </p>
-          </div>
+        <div class="seamless-award-col reveal">
+          <div class="award-badge-icon">🏆</div>
+          <h4>2x IT Operation Improvement Winner</h4>
+          <div class="award-org">UNIT4</div>
+          <p>
+            Awarded twice consecutively for identifying systemic support friction, establishing standard operating
+            procedures (SOPs), and deploying automation that measurably reduced mean time to resolution (MTTR).
+          </p>
         </div>
 
-        <div class="achievement-keynote-card reveal reveal-delay-1">
-          <div>
-            <div class="award-badge-icon">🥇</div>
-            <h4>#1 Top Performer Service Desk</h4>
-            <div class="award-org">UNIT4 Service Operations</div>
-            <p>
-              Achieved highest performance ranking among service desk engineers for ticket throughput, First Contact
-              Resolution (FCR), and maintaining an exemplary customer satisfaction rating above 95%.
-            </p>
-          </div>
+        <div class="seamless-award-col reveal reveal-delay-1">
+          <div class="award-badge-icon">🥇</div>
+          <h4>#1 Top Performer Service Desk</h4>
+          <div class="award-org">UNIT4 Service Operations</div>
+          <p>
+            Achieved highest performance ranking among service desk engineers for ticket throughput, First Contact
+            Resolution (FCR), and maintaining an exemplary customer satisfaction rating above 95%.
+          </p>
         </div>
 
-        <div class="achievement-keynote-card reveal reveal-delay-2">
-          <div>
-            <div class="award-badge-icon">☁️</div>
-            <h4>AWS Academy Cloud Graduate</h4>
-            <div class="award-org">Amazon Web Services Academy</div>
-            <p>
-              Successfully completed comprehensive enterprise cloud architecture training covering AWS compute (EC2),
-              storage (S3), identity (IAM), and virtual private clouds (VPC).
-            </p>
-          </div>
+        <div class="seamless-award-col reveal reveal-delay-2">
+          <div class="award-badge-icon">☁️</div>
+          <h4>AWS Academy Cloud Graduate</h4>
+          <div class="award-org">Amazon Web Services Academy</div>
+          <p>
+            Successfully completed comprehensive enterprise cloud architecture training covering AWS compute (EC2),
+            storage (S3), identity (IAM), and virtual private clouds (VPC).
+          </p>
         </div>
 
       </div>
@@ -567,20 +611,24 @@
   </section>
 
 
-  <!-- ============ PROJECTS ============ -->
+  <!-- ============ SELECTED PROJECTS (SEAMLESS, NO BOX) ============ -->
   <section class="section-keynote" id="projects">
     <div class="container">
+      <div class="guide-node-wrap reveal" aria-hidden="true">
+        <span class="guide-node"></span>
+      </div>
+
       <div class="section-header-keynote reveal">
         <span class="section-kicker">Selected Projects</span>
-        <h2>Engineered solutions in action.</h2>
-        <p>
+        <h2 class="seamless-headline">Engineered solutions in action.</h2>
+        <p class="seamless-subheadline">
           A selection of applications and technical systems designed, built, or deployed.
         </p>
       </div>
 
-      <div class="bento-grid">
+      <div class="seamless-projects-grid">
 
-        <div class="project-card col-6 reveal">
+        <div class="seamless-project-item reveal">
           <div>
             <div class="project-type-chip">Undergraduate Thesis • Web App</div>
             <h4>NIUNIQ Web Application</h4>
@@ -590,7 +638,7 @@
               hosting.
             </p>
           </div>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">Back-End Systems</span>
             <span class="bento-tag">Authentication</span>
             <span class="bento-tag">Admin Panel</span>
@@ -598,7 +646,7 @@
           </div>
         </div>
 
-        <div class="project-card col-6 reveal reveal-delay-1">
+        <div class="seamless-project-item reveal reveal-delay-1">
           <div>
             <div class="project-type-chip">ERA Graha • Jan 2022 – Dec 2022</div>
             <h4>Digital Marketing & Web Optimization Specialist</h4>
@@ -609,7 +657,7 @@
               traffic.
             </p>
           </div>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">Web Development</span>
             <span class="bento-tag">Advanced SEO</span>
             <span class="bento-tag">META Ads</span>
@@ -617,7 +665,7 @@
           </div>
         </div>
 
-        <div class="project-card col-6 reveal">
+        <div class="seamless-project-item reveal">
           <div>
             <div class="project-type-chip">Internship • Aug 2021 – Nov 2021</div>
             <h4>Native Mobile Application Developer ("Rumah Konseling")</h4>
@@ -628,7 +676,7 @@
               with counseling teachers.
             </p>
           </div>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">Android (Java)</span>
             <span class="bento-tag">XML</span>
             <span class="bento-tag">Firebase</span>
@@ -637,7 +685,7 @@
           </div>
         </div>
 
-        <div class="project-card col-6 reveal reveal-delay-1">
+        <div class="seamless-project-item reveal reveal-delay-1">
           <div>
             <div class="project-type-chip">Telkom University • Sep 2020 – Feb 2021</div>
             <h4>Academic Leadership & Practicum Assistant</h4>
@@ -646,7 +694,7 @@
               collaboration with other assistants and taught foundational networking concepts to junior classes.
             </p>
           </div>
-          <div class="bento-tag-cloud">
+          <div class="seamless-tag-cloud">
             <span class="bento-tag">Telkom University</span>
             <span class="bento-tag">Sisjar Lab</span>
             <span class="bento-tag">Practicum Modules</span>
@@ -659,31 +707,35 @@
   </section>
 
 
-  <!-- ============ EDUCATION ============ -->
+  <!-- ============ EDUCATION & CONTINUOUS LEARNING (SEAMLESS, NO BOX) ============ -->
   <section class="section-keynote" id="education">
     <div class="container">
-      <div class="section-header-keynote reveal">
-        <span class="section-kicker">Education & Certifications</span>
-        <h2>Academic foundation & continuous learning.</h2>
+      <div class="guide-node-wrap reveal" aria-hidden="true">
+        <span class="guide-node"></span>
       </div>
 
-      <div class="education-grid">
+      <div class="section-header-keynote reveal">
+        <span class="section-kicker">Education & Continuous Learning</span>
+        <h2 class="seamless-headline">Academic foundation & continuous learning.</h2>
+      </div>
 
-        <div class="edu-card reveal">
+      <div class="seamless-education-grid">
+
+        <div class="seamless-edu-col reveal">
           <div class="edu-level">Master's Degree (S2)</div>
           <h4>Information Systems</h4>
           <div class="edu-school">Telkom University</div>
           <div class="edu-years"><i class="far fa-calendar-alt"></i> Expected Graduation: April 2027</div>
         </div>
 
-        <div class="edu-card reveal reveal-delay-1">
+        <div class="seamless-edu-col reveal reveal-delay-1">
           <div class="edu-level">Bachelor's Degree (S1)</div>
           <h4>Management Information Systems</h4>
           <div class="edu-school">Telkom University</div>
           <div class="edu-years"><i class="far fa-calendar-alt"></i> Graduated: July 2025</div>
         </div>
 
-        <div class="edu-card reveal reveal-delay-2">
+        <div class="seamless-edu-col reveal reveal-delay-2">
           <div class="edu-level">Professional Training</div>
           <h4>AWS Cloud Admin</h4>
           <div class="edu-school">ID-Networkers</div>
@@ -702,8 +754,11 @@
   <!-- ============ APPLE KEYNOTE CLOSING CALLOUT ============ -->
   <section class="closing-cta" id="contact">
     <div class="container">
-      <div class="closing-inner">
+      <div class="guide-node-wrap reveal" aria-hidden="true">
+        <span class="guide-node"></span>
+      </div>
 
+      <div class="closing-inner">
         <div class="keynote-eyebrow reveal">
           <span class="dot"></span>
           Let's Connect
@@ -751,7 +806,7 @@
     <div class="container">
       <div class="footer-inner">
         <div>
-          &copy; 2026 Leonard Lesmana. Designed with Apple & Google I/O minimalist aesthetics.
+          &copy; 2026 Leonard Lesmana. Designed with Apple minimalist aesthetics.
         </div>
         <div class="footer-social-links">
           <a href="https://www.linkedin.com/in/leonard-lesmana/" target="_blank" rel="noopener" aria-label="LinkedIn"><i
