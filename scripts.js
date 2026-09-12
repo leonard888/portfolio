@@ -88,8 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const roles = [
       'IT Helpdesk & Systems Administrator',
       'IT Service Desk Engineer',
-      'Infrastructure & Cloud Specialist',
-      'Process & IT Operations Optimizer'
+      'Infrastructure & Cloud Support',
+      'IT Operations & Process Improvement'
     ];
     let roleIdx = 0;
     let charIdx = 0;
